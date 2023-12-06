@@ -16,3 +16,7 @@ var z=1234;
 e=z.toString();
 console.log(e+99);
 console.log(z+99);
+/* 
+123499
+1333
+*/
