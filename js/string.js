@@ -111,3 +111,15 @@ console.log(string10.padStart(10, " "));
 console.log(string10.padEnd(10, " ")+"Hi!!");
 //       Sang
 // Sang      Hi!!
+
+const sampleStr = "Alan said, \"Peter is learning JavaScript\".";
+
+console.log(sampleStr);
+
+const myStr = '<a href="http://www.example.com" target="_blank">Link</a>';
+
+console.log(myStr);
+
+const myStr1 = "FirstLine\n \t \\SecondLine \nThirdLine"; // Change this line
+
+console.log(myStr1);
