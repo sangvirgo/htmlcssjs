@@ -74,3 +74,25 @@ function order(quantily, price ) {
 
 order(15, 45);
 
+// manipulate arrays 
+const arrayNum1=[1, 2, 3, 4];
+arrayNum1.push("Sang", 5);
+console.log(arrayNum1);
+
+// pop 
+const variablepop=arrayNum1.pop();
+console.log(variablepop);
+console.log(arrayNum1);
+arrayNum1.pop();
+console.log(arrayNum1);
+
+// shift   xoa phan tu dau remove the first element
+const myArray = [["John", 23], ["dog", 3]];
+const variableshift=myArray.shift();
+console.log(variableshift);
+console.log(myArray);
+
+
+// unshift
+arrayNum1.unshift("Han");
+console.log(arrayNum1);
