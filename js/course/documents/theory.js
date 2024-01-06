@@ -1,3 +1,4 @@
+
 let js ="Sang";
 // if(js==="Sang") alert("He lo em iu");
 
@@ -109,21 +110,21 @@ if(height) {
 }
 
 console.log("\n");
-/* if else 
-const num1=prompt("What's your favourite number?");
-if(num1==12) {
-    console.log("This is a number!");
-} else {
-    console.log("This is a string");
-}
+// // if else 
+// const num1=prompt("What's your favourite number?");
+// if(num1==12) {
+//     console.log("This is a number!");
+// } else {
+//     console.log("This is a string");
+// }
 
-const num2=Number(prompt("What's your favourite number?"));
-if(num2===12) {
-    console.log("This is a number!");
-} else {
-    console.log("This is a string");
-}
-*/
+// const num2=Number(prompt("What's your favourite number?"));
+// if(num2===12) {
+//     console.log("This is a number!");
+// } else {
+//     console.log("This is a string");
+// }
+
 
 // switch
 
@@ -247,8 +248,6 @@ let foundNumber=nums.find(function(number){
     return number>3;
 });
 
-console.log(foundNumber);
-
 // Methods of array
 
 // manipulate arrays 
@@ -289,8 +288,118 @@ if(friends.includes('Sang')){
     console.log('You have a friend called Sang')
 }
 
-/* Write your code below. Good luck! 🙂 */
+// sort()
+const fruits=['apple', 'banana', 'orange', 'grape', 'kiwi', 'cherry'];
+fruits.sort();
+console.log(fruits + '\n');
 
+// sort by length
+fruits.sort(function(a, b) {
+    return a.length - b.length;
+})
+
+console.log(fruits+ '\n');
+
+const num3=[8,7,1,9,6,4,5,2,1,7,5];
+num3.sort();
+console.log(num3);
+
+// sort decreases gradually
+num3.sort(function(a, b){
+    return b-a;
+})
+console.log(num3);
+
+
+// how to use find 
+// its return the first element in an array that satisfies a provided tesing function
+
+// use num3
+const foundNumbers=num3.find(function(element){
+    return element>5;
+});
+
+// const foundnumbers=num3.find(element=>elemet>5);
+
+console.log(foundNumbers+'\n');
+
+
+// how to use 
+// check if at least one element in an array satisfies a provided testing function
+
+// use num3=   9, 8, 7, 7, 6, 5, 5, 4, 2, 1, 1
+
+// const isGreaterThan5=num3.some(function(element){
+//     return element>5;
+// })
+
+// another way
+const isGreaterThan5=num3.some(element=>element>5);
+
+console.log(isGreaterThan5+'\n');
+
+
+// how to use some
+// if all element in an array satisfy a provided testing function
+const isEvenNumber=num3.every(element=>element%2===0);
+console.log(isEvenNumber+'\n');
+
+
+// how to use slice()
+// extract a portion of an array and create a new array but its not including the end index
+
+// [ 'kiwi', 'apple', 'grape', 'banana', 'cherry', 'orange' ]
+const slicefruits=fruits.slice(2, 5);
+console.log(slicefruits);
+
+
+
+// how to use map()
+// Create a new array 
+const doubleNumbers=num3.map(element=>element*2);
+console.log(num3);
+console.log(doubleNumbers);
+
+
+// how to use filter()
+//  Creates a new array with all element that pass the test inplemented by the provided function
+const isEvenNumbersByFilter=num3.filter(element=>element%2===0);
+console.log(isEvenNumbersByFilter);
+
+
+// how to use reduce()
+// reduce the element of an array to a single value 
+const sumOfReduce=num3.reduce((sum, num)=>sum+num, 0);
+console.log(sumOfReduce);
+
+
+// how to use forEach
+// Executes a provided function once for each array element
+num3.forEach((num)=>console.log(num-2));
+console.log();
+
+
+// how to use lastIndexOf
+// return the last index at which a given element can be found in the array
+const fruits1=['apple', 'banana', 'orange', 'grape', 'kiwi', 'cherry', 'apple', 'kiwi'];
+console.log(fruits1.lastIndexOf('apple'));
+
+
+
+// how to use reverse()
+// reverse the order of the element of an array in place 
+console.log(num3);
+console.log(num3.reverse());
+
+
+// how to use concat
+// return a new array that includes element from the original array and additional element
+const num4=[1, 2, 3];
+const num5=[4, 5];
+console.log(num4.concat(num5));
+
+
+console.log(foundNumber);
 
 function calcTip(num) {
     return (num >= 50 && num <= 300) ? num * 0.15 : num * 0.2;
@@ -308,14 +417,85 @@ for (let i = 0; i < bills.length; i++) {
 
 console.log(totals);
 
-
+/*
 // introduction to object
 const arrayOfSang={
     firstName: 'Nguyen',
     lastName: 'Sang',
-    age: new Date().getFullYear-2004,
+    age: new Date().getFullYear()-2004,
     job: 'Dev',
+    friend: ['Son', 'Phuc', 'Quan'],
     myLover: 'Su'
 };
 
 console.log(arrayOfSang);
+
+// Dot vs bracket notation
+console.log(arrayOfSang.firstName);
+console.log(arrayOfSang['myLover']);
+
+
+const stringtemp='Name';
+console.log(arrayOfSang['first'+stringtemp]);
+
+
+console.log(arrayOfSang['last'+stringtemp]);
+
+// const interestedIn = prompt("What do you want to know about Sang? Choose between firstName, lastName, job, myLover");
+
+// if(interestedIn && arrayOfSang[interestedIn]) {
+//     console.log(arrayOfSang[interestedIn]);
+//     alert(`His ${interestedIn} is: `+arrayOfSang[interestedIn]);
+// } else {
+//     console.log('Invalid input or property not found!');
+//     alert("Invalid input or property not found!");
+// }
+
+
+// add to arrayOFSang
+arrayOfSang.location="Tien Giang";
+arrayOfSang.fb="tuitenSoang";
+
+console.log(arrayOfSang);
+
+console.log(`${arrayOfSang.lastName} has ${arrayOfSang.friend.length} friend, and his lose friend is called ${arrayOfSang.friend[0]}`);
+*/
+
+
+
+// Object Methods
+const arrayOfSang={
+    firstName: 'Nguyen',
+    lastName: 'Sang',
+    birthDay: 2004,
+    job: 'Dev',
+    friend: ['Son', 'Phuc', 'Quan'],
+    myLover: 'Su', 
+    hasDriverLicense: true,
+
+    calc: function (birthDay) {
+        return new Date().getFullYear()-birthDay;
+    },
+
+    calcthis: function () {
+        return new Date().getFullYear()-this.birthDay;
+    }
+};
+
+console.log(arrayOfSang.calc(2004));
+
+console.log(arrayOfSang['calc'](2004));
+
+console.log(arrayOfSang.calcthis());
+
+console.log(`${arrayOfSang.lastName} is ${arrayOfSang.calcthis()} years old and ${arrayOfSang.job}, and he ${(arrayOfSang.hasDriverLicense)?'has' : "hasn't"} a driver's license`);
+
+
+// while loop
+let rep=1;
+while(rep<=10) {
+    console.log(`While: Lifting weights repetition ${rep} times`);
+    rep++;
+}
+
+let dice = Math.random
