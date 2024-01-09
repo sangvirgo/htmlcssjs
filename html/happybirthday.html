@@ -1,89 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy BirthDay</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://scontent.fsgn5-5.fna.fbcdn.net/v/t39.30808-6/272920084_710599399921191_1374252270009435982_n.jpg?stp=dst-jpg_p370x247&_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yjYFTcwT48UAX_lIhs2&_nc_ht=scontent.fsgn5-5.fna&oh=00_AfCTxpHZrMQH64a45vV1fmjq5tGnjSNxOjWZZ0fzhb2dng&oe=654116B1');
-            background-size: contain;
-            text-align: center;
-            background-position: center;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-image: url("https://scontent.fsgn5-5.fna.fbcdn.net/v/t39.30808-6/272920084_710599399921191_1374252270009435982_n.jpg?stp=dst-jpg_p370x247&_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yjYFTcwT48UAX_lIhs2&_nc_ht=scontent.fsgn5-5.fna&oh=00_AfCTxpHZrMQH64a45vV1fmjq5tGnjSNxOjWZZ0fzhb2dng&oe=654116B1");
+        background-size: contain;
+        text-align: center;
+        background-position: center;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+      }
 
-        .heart {
-            width: 30px;
-            height: 30px;
-            background-color: #ff6f61;
-            position: absolute;
-            top: 0;
-            animation: fallHeart 2s linear infinite;
-            transform-origin: center bottom;
-        }
+      .heart {
+        width: 30px;
+        height: 30px;
+        background-color: #ff6f61;
+        position: absolute;
+        top: 0;
+        animation: fallHeart 2s linear infinite;
+        transform-origin: center bottom;
+      }
 
-        @keyframes fallHeart {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
+      @keyframes fallHeart {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
         }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
 
-        .birthday-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
+      .birthday-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        max-width: 400px;
+        margin: 0 auto;
+      }
 
-        h1 {
-            color: #ff6f61;
-        }
+      h1 {
+        color: #ff6f61;
+      }
 
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
 
-        .heart-icon {
-            color: #ff6f61;
-            font-size: 36px;
-        }
+      .heart-icon {
+        color: #ff6f61;
+        font-size: 36px;
+      }
 
-        footer {
-            font-size: 30px;
-            color: #0ee812;
-            margin-top: 20px;
-            font-weight: bold;
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-        }
+      footer {
+        font-size: 30px;
+        color: #0ee812;
+        margin-top: 20px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="birthday-card">
-        <h1>Chúc mừng sinh nhật bé Gia Hân</h1>
-        <h2>Tui là tui chúc lúc 12h00 cơ :))))</h2>
-        <button id="myButton">Click Me</button>
-        <script>
-            document.getElementById("myButton").addEventListener("click", function() {
-                alert("Chúc mừng sinh Gia Hân lại thêm một tuổi mới <3 Chúc em tuổi mới ăn khỏe, ngủ khỏe và sức khỏe thì cực khỏe có điều đừng dỗi phẻ dỗ mệt lúm :>>>. Chúc em luôn đạt được những gì mình mong muốn!! Luôn luôn học giỏi học ơ đồ nek, nói chung là yêu em!!!! Có dịp gặp anh sẽ ôm em thật chặt lun <3");
-            });
-        </script>
+      <h1>Chúc mừng sinh nhật bé Gia Hân</h1>
+      <h2>Tui là tui chúc lúc 12h00 cơ :))))</h2>
+      <button id="myButton">Click Me</button>
+      <script>
+        document
+          .getElementById("myButton")
+          .addEventListener("click", function () {
+            alert(
+              "Chúc mừng sinh Gia Hân lại thêm một tuổi mới <3 Chúc em tuổi mới ăn khỏe, ngủ khỏe và sức khỏe thì cực khỏe có điều đừng dỗi phẻ dỗ mệt lúm :>>>. Chúc em luôn đạt được những gì mình mong muốn!! Luôn luôn học giỏi học ơ đồ nek, nói chung là yêu em!!!! Có dịp gặp anh sẽ ôm em thật chặt lun <3",
+            );
+          });
+      </script>
     </div>
     <div class="heart"></div>
     <div class="heart"></div>
@@ -91,5 +95,5 @@
     <div class="heart"></div>
     <div class="heart"></div>
     <footer>Created with &hearts; by Sang Nguyễn</footer>
-</body>
+  </body>
 </html>

@@ -1,11 +1,11 @@
 let countdownDate;
 
 function startCountdown() {
-  const inputElement = document.getElementById('countdown-input');
+  const inputElement = document.getElementById("countdown-input");
   countdownDate = new Date(inputElement.value).getTime();
 
   if (isNaN(countdownDate)) {
-    alert('Invalid date/time format. Please enter a valid date/time.');
+    alert("Invalid date/time format. Please enter a valid date/time.");
     return;
   }
 
@@ -23,12 +23,15 @@ function updateCountdown() {
 
   if (distance > 0) {
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+    );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById('timer').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    document.getElementById("timer").innerHTML =
+      `${days}d ${hours}h ${minutes}m ${seconds}s`;
   } else {
-    document.getElementById('timer').innerHTML = 'EXPIRED';
+    document.getElementById("timer").innerHTML = "EXPIRED";
   }
 }

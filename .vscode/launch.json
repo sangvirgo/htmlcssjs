@@ -1,7 +1,7 @@
 {
-    "version": "0.2.0",
-    "configurations": [],
-    "code-runner.executorMap": {
-        "cpp": "g++ -std=c++17 -o $fileNameWithoutExt $fullFileName && ./\$fileNameWithoutExt"
-    }
+  "version": "0.2.0",
+  "configurations": [],
+  "code-runner.executorMap": {
+    "cpp": "g++ -std=c++17 -o $fileNameWithoutExt $fullFileName && ./$fileNameWithoutExt"
+  }
 }

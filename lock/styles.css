@@ -7,10 +7,11 @@ body {
   height: 100vh;
   background-size: cover; /* Use cover instead of 100% for better background scaling */
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
-#countdown-input, #timer {
+#countdown-input,
+#timer {
   margin: 10px;
   color: red;
   font-size: 55px; /* Correct property name */
