@@ -533,3 +533,40 @@ const calcAverge = () => {
 console.log(calcAverge);
 
 */
+
+
+
+// return 
+const temps = [3, -1, -5, 8, 'error', 15, -5];
+
+const findMax = (arr, index = 0, currentMax = Number.MIN_SAFE_INTEGER) => {
+    if (index === arr.length) {
+        return currentMax;
+    } else {
+        if (typeof arr[index] === 'number') {
+            currentMax = (currentMax < arr[index]) ? arr[index] : currentMax;
+          }
+          return findMax(arr, index + 1, currentMax);
+    }
+}
+
+const findMin=(arr, index=0, currentMin=Number.MAX_SAFE_INTEGER) =>{
+  if(index===arr.length) return currentMin;
+  if(typeof arr[index]==='number') {
+    currentMin=(currentMin>arr[index])?arr[index]:currentMin;
+  }
+  return findMin(arr, ++index, currentMin);
+}
+
+console.log(findMax(temps));
+console.log(findMin(temps));
+
+const tempprecedence=(arr)=> {
+  return findMax(arr)-findMin(arr);
+}
+
+
+console.log(temps.max());
+console.log(tempprecedence(temps));
+
+
