@@ -532,7 +532,7 @@ const calcAverge = () => {
 
 console.log(calcAverge);
 
-*/
+
 
 
 
@@ -570,3 +570,38 @@ console.log(temps.max());
 console.log(tempprecedence(temps));
 
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+// kham khao o web nay
+
+
+*/
+
+
+
+const measureKelvin =()=> {
+  const measurement ={
+    type: "temp",
+    unit: "celsius",
+    value: parseFloat(prompt('Degrees celsius'))
+  };
+  return measurement.value+273;
+};
+
+alert(measureKelvin());
+
+
+
+// // console.log(measureKelvin());
+// console.warn(measureKelvin());
+// console.error(measureKelvin());
+// console.table(measureKelvin());
+// // console.table(measurement);
+
+
+const temperatureData = [
+  { location: 'Tokyo', celsius: 25, kelvin: measureKelvin()},
+  { location: 'New York', celsius: 18, kelvin: measureKelvin() },
+  { location: 'London', celsius: 20, kelvin: measureKelvin() }
+];
+
+console.table(temperatureData);
