@@ -574,7 +574,7 @@ console.log(tempprecedence(temps));
 // kham khao o web nay
 
 
-*/
+
 
 
 
@@ -591,17 +591,40 @@ alert(measureKelvin());
 
 
 
-// // console.log(measureKelvin());
-// console.warn(measureKelvin());
-// console.error(measureKelvin());
-// console.table(measureKelvin());
-// // console.table(measurement);
+console.log(measureKelvin());
+console.warn(measureKelvin());
+console.error(measureKelvin());
+console.table(measureKelvin());
+// console.table(measurement);
 
 
 const temperatureData = [
-  { location: 'Tokyo', celsius: 25, kelvin: measureKelvin()},
-  { location: 'New York', celsius: 18, kelvin: measureKelvin() },
-  { location: 'London', celsius: 20, kelvin: measureKelvin() }
+  {Stt: 1, location: 'Tokyo', celsius: 25, kelvin: 52},
+  {Stt: 2, location: 'New York', celsius: 18, kelvin: 52 },
+  {Stt: 3, location: 'London', celsius: 20, kelvin: 52 }
 ];
 
 console.table(temperatureData);
+
+*/
+
+
+// Challenge 
+// Given an array of forecasted maximum temperatures, the thermometer 
+// display a string with these temperature.
+
+const printForecast=(arr)=> {
+  let count=0;
+  arr.forEach((num)=> console.log(`${num}*C in ${++count} ${(count===1)?'day':'days'}`));
+};
+
+const testcase1=[17, 21, 23];
+const testcase2=[12, 5, -5, 0, 4];
+
+printForecast(testcase1);
+printForecast(testcase2);
+
+
+
+
+
