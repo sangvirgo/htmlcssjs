@@ -606,7 +606,7 @@ const temperatureData = [
 
 console.table(temperatureData);
 
-*/
+
 
 
 // Challenge 
@@ -625,6 +625,4 @@ printForecast(testcase1);
 printForecast(testcase2);
 
 
-
-
-
+*/
