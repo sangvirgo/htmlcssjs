@@ -13,7 +13,7 @@ const player1=document.querySelector('.player--1');
 // variables
 let current, score, playing;
 let active=0;
-const WINNING_SCORE=10;
+const WINNING_SCORE=20;
 
 // function 
 
