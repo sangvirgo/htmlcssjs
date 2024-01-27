@@ -11,29 +11,29 @@ const player1=document.querySelector('.player--1');
 // its same 
 
 // variables
-let current, score, active;
-let playing=true;
+let current, score, playing;
+let active=0;
 const WINNING_SCORE=10;
 
 // function 
 
-const init=() =>{
-    score0.textContent=score1.textContent=0;
-    currentscore0.textContent=currentscore1.textContent=0;
-    current=0;
-    score=[0, 0];
-    playing=true;
-    active=0;
+const init = () => {
+    score0.textContent = 0;
+    score1.textContent = 0;
+    currentscore0.textContent = 0;
+    currentscore1.textContent = 0;
+    current = 0;
+    score = [0, 0];
+    playing = true;
 
     dice.classList.add('hidden');
-    document.querySelector('#name--0').textContent="Player 1";
-    document.querySelector(`#name--1`).textContent="Player 2";
+    document.querySelector(`.player--${active}`).classList.remove('player--winner');
+    document.querySelector('#name--0').textContent = "Player 1";
+    document.querySelector(`.player--${active === 1 ? 0 : 1}`).classList.remove('player--lose');
+    document.querySelector(`#name--1`).textContent = "Player 2";
     player0.classList.add('player--active');
     player1.classList.remove('player--active');
-    player0.classList.remove('player--winner');
-    player1.classList.remove('player--lose');
-    player1.classList.remove('player--winner');
-    player0.classList.remove('player--lose');
+    active = 0;
 }
 
 const swtichPlayer= () => {
