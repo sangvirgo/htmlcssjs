@@ -1,0 +1,134 @@
+h1, h2, h3, h4, p, li {
+  /* font chu */
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h1 {
+  color: blue;
+  font-size: 50px;
+  /* in hoa hay thuong */
+  text-transform: uppercase;
+  /* chu nghieng hay chu thuong */
+  font-style: italic;
+}
+
+h2 {
+  color: red;
+  font-size: 40px;
+}
+
+h3 {
+  color: red;
+  font-size: 30px;
+  /* chinh can chu */
+  text-align: center;
+}
+
+h4 {
+  color: purple;
+  font-size: 20px;
+  text-align:left;
+}
+
+p {
+  font-size: 20px;
+  /* do cao giua cac dong*/
+  line-height: 1.5;
+}
+
+li {
+  font-size: 15px;
+}
+
+/*p nam trong footer  */
+
+#author {
+  font-style: italic;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.clear-list {
+  /* huy list */
+  list-style: none;
+}
+
+.reset-list {
+  list-style:lower-roman; 
+}
+
+aside {
+  background-color: #f7f7f7;
+  border: 5px solid rgba(90, 212, 14, 0.764);
+  /* 
+  dotted: la vien bang dau cham tron xung quanh
+  dashed: la duong vien gach ngang 
+  */
+  border-bottom: 10px dashed rgba(150, 30, 132, 0.764);
+  border-top: 10px dotted rgba(42, 36, 192, 0.764);
+
+}
+
+/* lop gia  */
+
+/* phan tu dau tien */
+ li:first-child {
+  font-weight: bold;
+ }
+
+ li:last-child {
+  font-style: italic;
+}
+
+li:nth-child(2) {
+  color: red;
+}
+
+/* phan tu la so le */
+li:nth-child(odd) {
+  text-decoration: underline;
+}
+
+/* phan tu la so chan */
+li:nth-child(even) {
+  text-decoration: line-through;
+}
+/* link mac dinh */
+a:link {
+  color: #1098ad; 
+}
+/* lnk da duoc ghe tham  */
+a:visited {
+  color: red;
+}
+/* di chuot vao do */
+a:hover {
+  font-weight: bold;
+  color: red;
+}
+/* khi nhan vao */
+a:active {
+  background-color: black;
+  font-style: italic;
+}
+
+
+/* resolving conflicts */
+#copyright {
+  font-size: 13px;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: oblique;
+  color: red;
+}
+
+.copyright {
+  color: #1098ad;
+}
+
+.text {
+  color: chartreuse !important;
+}
+
+footer p{
+  color: yellow !important;
+}
