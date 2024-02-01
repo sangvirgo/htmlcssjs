@@ -1,11 +1,56 @@
-h1, h2, h3, h4, p, li {
-  /* font chu */
-  font-family: 'Noto Sans', sans-serif;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  /* background-color: #444; */
+}
+
+/* box in css */
+header {
+  background-color: #f7f7f7;
+  /* padding toan bo */
+  /* padding: 20px; */
+
+  /* padding (top bot) (trai phai) */
+  padding: 15px 20px;
+  border: black 2px solid;
+}
+
+.title-web {
+  /* margin follow clockwise  */
+  margin: 5px 10px 15px 20px;
+  border: 2px solid black;
+}
+
+aside {
+  background-color: #f7f7f7;
+  border: 5px solid rgba(90, 212, 14, 0.764);
+  /* 
+  dotted: la vien bang dau cham tron xung quanh
+  dashed: la duong vien gach ngang 
+  */
+  border-bottom: 10px dashed rgba(150, 30, 132, 0.764);
+  border-top: 10px dotted rgba(42, 36, 192, 0.764);
+}
+
+ul, 
+ol {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+  background-color: #f7f7f7;
 }
 
 h1 {
   color: blue;
-  font-size: 50px;
+  font-size: 45px;
   /* in hoa hay thuong */
   text-transform: uppercase;
   /* chu nghieng hay chu thuong */
@@ -49,24 +94,15 @@ li {
 
 .clear-list {
   /* huy list */
-  list-style: none;
+  /* list-style: none */
+
+  list-style: square;
 }
 
 .reset-list {
   list-style:lower-roman; 
 }
 
-aside {
-  background-color: #f7f7f7;
-  border: 5px solid rgba(90, 212, 14, 0.764);
-  /* 
-  dotted: la vien bang dau cham tron xung quanh
-  dashed: la duong vien gach ngang 
-  */
-  border-bottom: 10px dashed rgba(150, 30, 132, 0.764);
-  border-top: 10px dotted rgba(42, 36, 192, 0.764);
-
-}
 
 /* lop gia  */
 
@@ -104,6 +140,7 @@ a:visited {
 a:hover {
   font-weight: bold;
   color: red;
+  text-decoration: none;
 }
 /* khi nhan vao */
 a:active {
@@ -111,8 +148,9 @@ a:active {
   font-style: italic;
 }
 
-
 /* resolving conflicts */
+
+/*  
 #copyright {
   font-size: 13px;
   font-style: italic;
@@ -132,3 +170,35 @@ a:active {
 footer p{
   color: yellow !important;
 }
+
+*/
+
+
+/* types of boxes */
+li {
+  /* viet cac list thanh mot hang ngang */
+  /* display: inline; */
+
+/* DISPLATY theo cac block */
+  /* display: block; */
+  margin: 10px;
+}
+
+nav a:link {
+  margin-right: 30px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+nav a:last-child {
+  margin-right:0;
+}
+
+.picture-html {
+  height: auto;
+  width: 100%;
+  margin: 50px 0;
+}
+
+
+
