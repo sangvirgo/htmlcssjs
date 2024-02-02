@@ -6,6 +6,7 @@
 body {
   font-family: sans-serif;
   /* background-color: #444; */
+  position: relative;
 }
 
 /* box in css */
@@ -59,7 +60,7 @@ h1 {
 
 h2 {
   color: red;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 h3 {
@@ -128,26 +129,68 @@ li:nth-child(odd) {
 li:nth-child(even) {
   text-decoration: line-through;
 }
+
 /* link mac dinh */
 a:link {
   color: #1098ad; 
 }
+
 /* lnk da duoc ghe tham  */
 a:visited {
   color: red;
 }
+
 /* di chuot vao do */
 a:hover {
   font-weight: bold;
   color: red;
   text-decoration: none;
 }
+
 /* khi nhan vao */
 a:active {
   background-color: black;
   font-style: italic;
 }
 
+/* the first letter in line */
+.Title-all::first-letter {
+  font-style: normal;
+  color: red;
+}
+
+
+/* only the line after h3 are affected  */
+h3 + p::first-line {
+  color: red;
+}
+
+/* add content after element */
+
+.title-web {
+  position: relative;
+}
+
+.title-web::after {
+  content: "Top";
+  font-size: 15px;
+  color: black;
+  background-color: yellow;
+  position: absolute;
+  display: inline-block;
+  padding: 5px 5px;
+  right: 0;
+  top: 0;
+}
+
+.title-web::before {
+  content: "Hi";
+  font-size: 15px;
+  color: black;
+  background-color: yellow;
+  margin-right: 10px;
+  padding: 5px 5px;
+}
 /* resolving conflicts */
 
 /*  
@@ -201,4 +244,13 @@ nav a:last-child {
 }
 
 
+.btn-like {
+  font-size: 20px;
+  cursor: pointer;
+  padding: 15px;
 
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
