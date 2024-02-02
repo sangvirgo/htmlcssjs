@@ -17,24 +17,30 @@ header {
 
   /* padding (top bot) (trai phai) */
   padding: 15px 20px;
-  border: black 2px solid;
+  /* border: black 2px solid; */
 }
 
 .title-web {
   /* margin follow clockwise  */
-  margin: 5px 10px 15px 20px;
-  border: 2px solid black;
+  /* margin: 5px 10px 15px 20px; */
+  margin: 20px;
+  text-align: center;
+  /* border: 2px solid black; */
 }
 
 aside {
-  background-color: #f7f7f7;
-  border: 5px solid rgba(90, 212, 14, 0.764);
+  background-color: #afafaf2b;
+  /* border: 5px solid rgba(90, 212, 14, 0.764); */
   /* 
   dotted: la vien bang dau cham tron xung quanh
   dashed: la duong vien gach ngang 
   */
-  border-bottom: 10px dashed rgba(150, 30, 132, 0.764);
-  border-top: 10px dotted rgba(42, 36, 192, 0.764);
+  /* border-bottom: 10px dashed rgba(150, 30, 132, 0.764);
+  border-top: 10px dotted rgba(42, 36, 192, 0.764); */
+  padding: 40px 0;
+  border-bottom:5px  #1098ad solid;
+  border-top:5px  #1098ad solid;
+  margin-top: 40px;
 }
 
 ul, 
@@ -44,14 +50,13 @@ ol {
 }
 
 .container {
-  width: 800px;
-  margin: 0 auto;
+  width: 1200px;
+  margin: auto;
   background-color: #f7f7f7;
 }
 
 h1 {
   color: blue;
-  font-size: 45px;
   /* in hoa hay thuong */
   text-transform: uppercase;
   /* chu nghieng hay chu thuong */
@@ -60,12 +65,10 @@ h1 {
 
 h2 {
   color: red;
-  font-size: 35px;
 }
 
 h3 {
   color: red;
-  font-size: 30px;
   /* chinh can chu */
   text-align: center;
 }
@@ -171,7 +174,7 @@ h3 + p::first-line {
   position: relative;
 }
 
-.title-web::after {
+/* .title-web::after {
   content: "Top";
   font-size: 15px;
   color: black;
@@ -181,16 +184,16 @@ h3 + p::first-line {
   padding: 5px 5px;
   right: 0;
   top: 0;
-}
+} */
 
-.title-web::before {
+/* .title-web::before {
   content: "Hi";
   font-size: 15px;
   color: black;
   background-color: yellow;
   margin-right: 10px;
   padding: 5px 5px;
-}
+} */
 /* resolving conflicts */
 
 /*  
@@ -253,4 +256,62 @@ nav a:last-child {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.author-img {
+  /* float: left; đặt phần tử author-img nổi lên về phía 
+  trái và cho phép các phần tử khác theo sau nó theo chiều ngang.*/
+  float: left;
+
+}
+
+.author {
+  /* padding-left: 80px; */
+  padding-top: 10px;
+  float: left;
+  margin-left: 20px;
+}
+
+.Title-all {
+  margin-right: 15px;
+  float: left;
+}
+
+.title-link {
+  float: right;
+}
+
+.header-title {
+  background-color: greenyellow;
+}
+
+.clear {
+  /* dung de xoa float o tren */
+  clear: both;
+}
+
+.clearfix::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+
+
+
+
+article {
+  width: 900px;
+  float: left;
+}
+
+aside {
+  width: 300px;
+  float: right;
+
+}
+
+.copyright {
+  clear: both;
+  font-style: italic;
+  font-size: small;
 }
