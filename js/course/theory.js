@@ -625,4 +625,25 @@ printForecast(testcase1);
 printForecast(testcase2);
 
 
+console.log(me);
+console.log(job);
+console.log(year);
+
+var me="Sang";
+let job="tutor";
+const year=2004;
+
+
+
+if(!sang) deleteShopping();
+
+var sang=10;
+
+function deleteShopping() {
+  console.log("hihih");
+}
+
+
+
+
 */
