@@ -646,4 +646,25 @@ function deleteShopping() {
 
 
 
+
+
+// try and catch
+try {
+  // Mã có thể gây ra ngoại lệ
+  let result = 10 / 0; // Chia cho 0
+  console.log(result); // Mã này sẽ không được thực thi nếu có ngoại lệ xảy ra trước đó
+} catch (error) {
+  // Xử lý ngoại lệ
+  console.error("Đã xảy ra lỗi:", error.message);
+}
+
+
+try {
+  (5).toUpperCase();
+} 
+catch(e) {
+  console.log(`Oops, you can't uppercase a number. 
+      Trying to do it resulted in the following`, e);
+}
+
 */
