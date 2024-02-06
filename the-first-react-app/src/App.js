@@ -4,6 +4,12 @@ import Heading from './components/Heading';
 import Main from './components/Main';
 import Sidebar from './components/Sidebar';
 import Example from './components/Example';
+import mylove from './mylove.jpg';
+
+
+function Picture(props) {
+  return <img className="mylove" src={mylove} alt="My Love" />;
+}
 
 
 function App() {
@@ -14,6 +20,7 @@ function App() {
       <Sidebar heading="Nguyen" promoSubHeading="Sang" />
       <h1 className="example">Example for xpressions as props: </h1>
       <Example/>
+      <Picture/>
     </div> 
   ); 
 } 
