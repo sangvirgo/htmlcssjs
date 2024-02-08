@@ -126,7 +126,7 @@ li:nth-child(even) {
 
 /* link mac dinh */
 a:link {
-  color: #1098ad; 
+  color: rgb(17, 0, 255); 
 }
 
 /* lnk da duoc ghe tham  */
@@ -151,6 +151,7 @@ a:active {
 .Title-all::first-letter {
   font-style: normal;
   color: red;
+
 }
 
 
@@ -273,7 +274,7 @@ nav a:last-child {
 }
 
 .header-title {
-  background-color: greenyellow;
+  background-color: #fffb06;
 }
 
 .clear {
@@ -327,3 +328,5 @@ aside {
   border-top:5px  #1098ad solid;
   margin-top: 40px;
 }
+
+

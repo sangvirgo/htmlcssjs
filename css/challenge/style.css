@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -17,7 +18,7 @@ h1 {
 
 .container {
     margin: 50px auto;
-    width: 800px;
+    width: 840px;
     border: black 4px solid ;
 }
 
@@ -26,11 +27,14 @@ h1 {
     width: 250px;
     /* duy try chieu cao va chieu rong */
     aspect-ratio: 250/250 ;
+    float: left;
+    margin-right: 40px;
 }
 
 .price {
     font-weight: bold;
     font-size: 20px;
+    float: left;
 }
 
 .ship {
@@ -39,6 +43,7 @@ h1 {
     color: #777;
     font-size: 12px;
     padding-bottom: 20px;
+    float: right;
 }
 
 .more-info:link {
@@ -133,4 +138,20 @@ ul {
   .color-brown {
     background-color: #885214;
   }
+
+.picture-and-color {
+    margin-right: 40px;
+    float: left;
+}
+
+.product-detail {
+    float: right;
+    width: 243px;
+}
+
+
+.detail {
+    width: 243px;
+    clear: both;
+}
 
