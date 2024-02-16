@@ -8,6 +8,8 @@ import Btn from './components/Btn';
 import ModeToggle from './components/ModeToggle';
 import Promo from './components/Promo';
 import Child from './components/Child';
+import RegisterForm from './components/RegisterForm';
+import Hooks from './components/Hooks';
 
 function Picture(props) {
   return <img className="mylove" src={mylove} alt="My Love" />;
@@ -33,6 +35,11 @@ function App() {
 
       {/* flow  */}
       <Child message={new Date().getMilliseconds()}/>
+
+      {/* hook */}
+      <RegisterForm/>
+
+      <Hooks message={"hihihhihih"}/>
     </div> 
   ); 
 } 
