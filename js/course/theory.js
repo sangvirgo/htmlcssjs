@@ -667,4 +667,52 @@ catch(e) {
       Trying to do it resulted in the following`, e);
 }
 
+
+
+var year=2004;
+
+const sang = {
+  firstName:  'Nguyen',
+  year: 2004,
+
+  calcAge: () => {
+    console.log(this);
+    console.log(new Date().getFullYear()-this.year);
+
+    const callName= () => {
+      console.log(this.firstName);
+    };
+    callName();
+  }
+}
+
+
+sang.calcAge();
+
+
 */
+const restaurant = {
+  name: "Classico Italiano",
+  location: 'Kim Son Chau Thanh Tien Giang',
+  categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+  starterMenu: ["Focaccia", "Brushetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+}
+
+const arr = [3, 4, 5];
+// gan cho a b c theo thu tu
+const [a, b, c]= arr;
+ 
+console.log(a, b, c);
+
+console.log(arr);
+
+let [first, second] = restaurant.mainMenu;
+
+console.log(first, second);
+// Pizza Pasta       const [first, second] = restaurant.mainMenu;
+// Pizza Risotto     const [first, , second] = restaurant.mainMenu;
+
+[first, second] = [ second, first];
+
+console.log(first, second);
