@@ -3,6 +3,12 @@ import './App.css';
 import Fruits from "./components/Fruits";
 import FruitsCounter from "./components/FruitsCounter";
 import React from "react";
+import {Routes, Route, Link} from "react-router-dom";
+import HomePage from './components/HomePage';
+import AboutMe from './components/AboutMe';
+import Contact from './components/Contact';
+import MyLove from './components/MyLove';
+import Bird from './components/Bird';
 
 function Main(props) { 
   return <Header msg={props.msg} />; 
@@ -40,7 +46,15 @@ function App() {
     {fruitName: 'Apple', id: 1},
     {fruitName: 'Plum', id: 2},
     {fruitName: 'Pineapple', id: 3},
-  ])
+  ]);
+
+  // calc day
+  const timeday = new Date();
+  const day=timeday.toLocaleString("en-us", { weekday: "long"});
+  const morning=timeday.getHours() >=6 && timeday.getHours() <=12;
+  console.log(day);
+  console.log(morning);
+  console.log(day.toLowerCase());
 
 
   return ( 
@@ -56,6 +70,34 @@ function App() {
     <h1>You should buy some of the fruits below </h1>
     <Fruits fruits={fruits}/>
     <FruitsCounter fruits={fruits}/>
+
+
+
+    {/* navigation */}
+    <nav className='navigation'>
+        <Link to="/" className='nav-item'>HomePage</Link>
+        <Link to="/about-me" className='nav-item'>About Me</Link>
+        <Link to="/contact" className='nav-item'>Contact</Link>
+    </nav>
+
+      <Routes>
+
+      <Route path='/' element={<HomePage/>}/>
+      <Route path='/about-me' element={<AboutMe/>}/>
+      <Route path="/contact" element={<Contact/>}></Route>
+      </Routes>
+
+
+      {/* condition */}
+      <h2>{morning}</h2>
+      <h1>{day}</h1>
+
+
+      <MyLove/>
+
+
+      {/* toggle  */}
+      <Bird></Bird>
     </div>
   ); 
 }; 
