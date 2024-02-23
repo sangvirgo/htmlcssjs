@@ -1,155 +1,157 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
-  line-height: 1.4;
+    font-family: sans-serif;
+    line-height: 1.4;
 }
 
 h1 {
-  text-transform: uppercase;
-  font-size: 22px;
-  background-color: #f7f7f7;
-  text-align: center;
+    text-transform: uppercase;
+    font-size: 22px;
+    background-color: #f7f7f7;
+    text-align: center;
 }
 
 .container {
-  margin: 50px auto;
-  width: 840px;
-  border: black 4px solid;
+    margin: 50px auto;
+    width: 840px;
+    border: black 4px solid ;
 }
 
 .picture {
-  height: 250px;
-  width: 250px;
-  /* duy try chieu cao va chieu rong */
-  aspect-ratio: 250/250;
-  float: left;
-  margin-right: 40px;
+    height: 250px;
+    width: 250px;
+    /* duy try chieu cao va chieu rong */
+    aspect-ratio: 250/250 ;
+    float: left;
+    margin-right: 40px;
 }
 
 .price {
-  font-weight: bold;
-  font-size: 20px;
-  float: left;
+    font-weight: bold;
+    font-size: 20px;
+    float: left;
 }
 
 .ship {
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #777;
-  font-size: 12px;
-  padding-bottom: 20px;
-  float: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #777;
+    font-size: 12px;
+    padding-bottom: 20px;
+    float: right;
 }
 
 .more-info:link {
-  color: rgb(255, 0, 0);
-  display: block;
-  margin-bottom: 20px;
+    color: rgb(255, 0, 0);
+    display: block;
+    margin-bottom: 20px;
 }
 
 .more-info:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .more-info:visited {
-  color: rgb(0, 4, 255);
+    color: rgb(0, 4, 255);
 }
 
 h2 {
-  text-transform: uppercase;
-  font-weight: bolder;
-  font-size: 16px;
-  margin: 15px 0;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 16px;
+    margin:15px 0;
 }
 
 li {
-  /* cham o vuong dau dong */
-  list-style: square;
-  padding: 5px 0;
+    /* cham o vuong dau dong */
+    list-style: square ;
+    padding: 5px 0;
 }
 
 .add-to-cart {
-  text-transform: uppercase;
-  font-size: 20px;
-  background-color: black;
-  color: white;
-  cursor: pointer;
-  text-align: center;
-  border-top: black 4px solid;
-  padding: 15px;
-  width: 100%;
+    text-transform: uppercase;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    border-top: black 4px solid;
+    padding: 15px;
+    width: 100%;
 }
 
 .add-to-cart:hover {
-  background-color: white;
-  color: black;
+    background-color: white;
+    color: black;
 }
 
 ul {
-  margin-left: 25px;
+    margin-left: 25px;
 }
 
 .container {
-  position: relative;
+    position: relative;
 }
 
 .container::before {
-  content: "Sale";
-  text-transform: uppercase;
-  font-size: 13px;
-  color: white;
-  background-color: red;
-  position: absolute;
-  top: -15px;
-  left: -37px;
-  display: inline-block;
-  letter-spacing: 2px;
-  padding: 7px 15px;
-  font-weight: bold;
+    content: "Sale";
+    text-transform: uppercase;
+    font-size: 13px;
+    color: white;
+    background-color: red;
+    position: absolute;
+    top: -15px;
+    left: -37px;
+    display: inline-block;
+    letter-spacing: 2px;
+    padding: 7px 15px;
+    font-weight: bold;
 }
 
 .color {
-  height: 20px;
-  width: 20px;
-  display: inline-block;
-  margin-right: 10px;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .color-black {
-  background-color: black;
+    background-color: black;
 }
 .color-blue {
-  background-color: #2f6ee2;
-}
-.color-red {
-  background-color: #ec2f2f;
-}
-.color-yellow {
-  background-color: #f0bf1e;
-}
-.color-green {
-  background-color: #90cc20;
-}
-.color-brown {
-  background-color: #885214;
-}
+    background-color: #2f6ee2;
+  }
+  .color-red {
+    background-color: #ec2f2f;
+  }
+  .color-yellow {
+    background-color: #f0bf1e;
+  }
+  .color-green {
+    background-color: #90cc20;
+  }
+  .color-brown {
+    background-color: #885214;
+  }
 
 .picture-and-color {
-  margin-right: 40px;
-  float: left;
+    margin-right: 40px;
+    float: left;
 }
 
 .product-detail {
-  float: right;
-  width: 243px;
+    float: right;
+    width: 243px;
 }
 
+
 .detail {
-  width: 243px;
-  clear: both;
+    width: 243px;
+    clear: both;
 }
+
