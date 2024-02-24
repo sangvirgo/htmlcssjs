@@ -39,7 +39,7 @@ ol {
 }
 
 .container {
-  width: 1200px;
+  width: 1000px;
   margin: auto;
   background-color: #f7f7f7;
 }
@@ -235,7 +235,7 @@ nav a:last-child {
 .picture-html {
   height: auto;
   width: 100%;
-  margin: 50px 0;
+  margin: 0 0 30px 0;
 }
 
 
@@ -250,28 +250,29 @@ nav a:last-child {
   right: 0;
 }
 
-.author-img {
+ .author-img {
   /* float: left; đặt phần tử author-img nổi lên về phía 
   trái và cho phép các phần tử khác theo sau nó theo chiều ngang.*/
-  float: left;
+  /* float: left; */
 
 }
 
-.author {
-  /* padding-left: 80px; */
+
+/* .author {
+  padding-left: 80px;
   padding-top: 10px;
   float: left;
   margin-left: 20px;
-}
+}  */
 
 .Title-all {
   margin-right: 15px;
   float: left;
 }
 
-.title-link {
+/* .title-link {
   float: right;
-}
+} */
 
 .header-title {
   background-color: #fffb06;
@@ -290,7 +291,7 @@ nav a:last-child {
 
 
 
-
+/* 
 article {
   width: 900px;
   float: left;
@@ -300,7 +301,7 @@ aside {
   width: 300px;
   float: right;
 
-}
+} */
 
 .copyright {
   clear: both;
@@ -329,4 +330,59 @@ aside {
   margin-top: 40px;
 }
 
+
+/* flex */
+
+
+.header-title {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.author-box {
+  display: flex;
+  align-items: center;
+}
+
+
+.author {
+  margin-left: 30px;
+}
+
+.related-post {
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  color: black !important;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.related-author {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.related-link {
+  margin-bottom: 5px;
+  display: block;
+}
+
+
+.row {
+  display: flex;
+  gap: 75px;
+  margin-bottom: 75px;
+  align-items: flex-start;
+}
+
+article {
+  flex: 0 1 auto;
+}
+
+aside {
+  /* flex-basis: 300px; */
+  flex:0 1 300px;
+}
 

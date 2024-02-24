@@ -45,6 +45,8 @@
 
         /* di theo phan tu dai nhat cu the la css 150px */
         display: flex;
+
+        /* can giua cac phan tu theo chieu doc */
         align-items: center;
         /* align-items: flex-start flex-end  */
 
@@ -53,7 +55,57 @@
 
         /* tao khoang trong giua hai box*/
         justify-content: space-between;
+
+        /* all of element move to top */
+        /* align-items: self-start; */
+
+        /* don tat ca ve ben trai */
+        /* justify-content: start; */
+
+        /* khoang cach giua cach box */
+        gap: 10px;
       }
+
+      .el {
+        /* default  
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basic: auto;
+        */
+
+          /* Giá trị mặc định là 1, nghĩa là các phần tử sẽ co lại với tỷ lệ bằng nhau.  */
+/* Giá trị cao hơn sẽ khiến phần tử co lại nhiều hơn. Ví dụ: flex-shrink: 2 co lại gấp đôi so với flex-shrink: 1. */
+
+
+        /* flex-shrink: 0; */
+        /* flex-grow: 1; */
+        /* flex-basis: 200px; */
+
+        /* flex-grow duoc viet trong so dau tien */
+        /* flex-shrink duoc viet trong so thu hai */
+        /* flex-basic duoc viet trong so thu ba */
+        flex: 1 0 auto;
+
+      }
+
+      /* chinh tung cai khong theo flex */
+      .el--1 {
+        /* align-self  */
+        align-self: flex-start;
+        order: -2;
+        /* flex-grow: 0; */
+      }
+
+      .el--2 {
+        align-self: stretch;
+        order: 1;
+      }
+
+      .el--5 {
+        order: -1;
+      }
+
+
     </style>
   </head>
   <body>
@@ -63,9 +115,9 @@
       <div class="el el--3">CSS</div>
       <div class="el el--4">are</div>
       <div class="el el--5">amazing</div>
-      <div class="el el--6">languages</div>
+      <!-- <div class="el el--6">languages</div>
       <div class="el el--7">to</div>
-      <div class="el el--8">learn</div>
+      <div class="el el--8">learn</div> -->
     </div>
   </body>
 </html>
