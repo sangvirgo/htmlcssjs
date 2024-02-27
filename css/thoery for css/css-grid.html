@@ -36,13 +36,44 @@
         /* STARTER */
         font-family: sans-serif;
         background-color: #ddd;
-        font-size: 40px;
+        font-size: 25px;
         margin: 40px;
 
         /* CSS GRID */
+        display: grid;
+        
+        /* grid-template-columns: 150px 150px 125px 125px ;
+        grid-template-rows: 200px 200px; */
+
+
+        /* gap: 30px; */
+        
+        /* khoang cach giua cach hang */
+        row-gap: 10px;
+
+        /* khoang cach giua cach cot */
+        column-gap: 20px;
+
+
+        /* fr= fraction  */
+        /* giup tao cach khoan cach mot cach hop ly */
+        /* grid-template-columns: 150px 150px 1fr 125px; */
+
+        /* repeat as name */
+        grid-template-columns: repeat(4, 1fr);
+
+        grid-template-rows: repeat(2, 1fr) !important;
+
+        height: 600px !important;
       }
 
+
+      /* dich chuyen cot */
+      
+
       .container--2 {
+        display: none;
+
         /* STARTER */
         font-family: sans-serif;
         background-color: black;
