@@ -9,12 +9,7 @@ body {
     line-height: 1.4;
 }
 
-h1 {
-    text-transform: uppercase;
-    font-size: 22px;
-    background-color: #f7f7f7;
-    text-align: center;
-}
+
 
 .container {
     margin: 50px auto;
@@ -157,34 +152,31 @@ ul {
 
 
 /* flexbox */
+/* 
 
-.price-ship {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+
+/* grid box */
+
+.container {
+    display: grid;
 }
 
-.flex-box {
-    display: flex;
-}
-
-.flex-info {
-    flex-basis: 270px;
-    margin-right: 20px;
-    line-height: 2rem;
+.product {
+    display: grid;
+    grid-template-columns: 250px 1fr 1fr;
 }
 
 .title-web {
-    margin-bottom: 15px;
-}
+    grid-column:1/-1;
+    height: 40px;
+    text-transform: uppercase;
+    font-size: 22px;
+    background-color: #f7f7f7;
+    text-align: center;
+    padding: 7px 10px ;
+    justify-content: center;
 
-.product-detail {
-    margin-top: -15px;
-}
-
-.detail {
-    margin: 10px 0px;
-    line-height: 1.3rem;
 }
 
 .flex-color {

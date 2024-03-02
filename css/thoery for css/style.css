@@ -331,15 +331,15 @@ aside {
 }
 
 
-/* flex */
+/* FlexBox */
 
 
-.header-title {
+/* .header-title {
   display: flex;
   /* align-items: center; */
-  justify-content: space-between;
-}
-
+  /* justify-content: space-between; */
+/* }  */
+/* 
 .author-box {
   display: flex;
   align-items: center;
@@ -379,10 +379,34 @@ aside {
 
 article {
   flex: 0 1 auto;
-}
+} */
 
-aside {
+/* aside { */
   /* flex-basis: 300px; */
-  flex:0 1 300px;
+  /* flex:0 1 300px;
+} */
+
+/* Grid box */
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  column-gap: 70px;
+  row-gap: 30px;
+  align-items: start;
 }
 
+.header-title {
+  grid-column: 1/ span 2 ;
+}
+
+.article-web {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+
+.aside-web {
+  grid-column: 2;
+  grid-row: 2;
+}

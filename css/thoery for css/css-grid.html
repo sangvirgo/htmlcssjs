@@ -62,28 +62,68 @@
         /* repeat as name */
         grid-template-columns: repeat(4, 1fr);
 
-        grid-template-rows: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(2, 1fr) ;
 
-        height: 600px !important;
+        height: 500px ;
+
+        display: none;
       }
 
 
-      /* dich chuyen cot */
+      /* dich chuyen cot
+      .el--7 {
+        /* bat gril len r hinh so ma chinh theo */
+        /* grid-row: 1;
+        grid-column: 2;
+      } */
+
+      /* tao diem rong */
+      /* .el--6 {
+        grid-column: 2/-1 ;
+        /* grid-row: 2; */
+      /* } 
       
+      /* keo dai den phan tu cuoi cung */
+      /* .el--8 {
+        grid-column: 2/-1;
+        grid-row: 2;
+      } */
+
+      /* .el--2 {
+        grid-row: 4/6;
+      }  */
 
       .container--2 {
-        display: none;
 
         /* STARTER */
         font-family: sans-serif;
         background-color: black;
         font-size: 40px;
-        margin: 100px;
+        margin: 40px;
 
-        width: 1000px;
+        width: 700px;
         height: 600px;
 
         /* CSS GRID */
+
+      /*Aligning tracks inside container distribute empty space  */
+      display: grid;
+      grid-template-columns: 125px 200px 125px;
+
+      grid-template-rows: 250px 100px;
+
+      justify-content: center;
+
+
+      /* justify-content: space-between; */
+
+        align-content: center;
+
+        /* create the between  */
+        align-content: space-between;
+        gap: 20px;
+
+        
       }
     </style>
   </head>
