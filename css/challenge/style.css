@@ -156,9 +156,10 @@ ul {
 
 
 
+
 /* grid box */
 
-.container {
+/* .container {
     display: grid;
 }
 
@@ -177,6 +178,39 @@ ul {
     padding: 7px 10px ;
     justify-content: center;
 
+}
+
+.flex-color {
+    display: flex;
+} */
+
+.price-ship {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-box {
+    display: flex;
+}
+
+.flex-info {
+    flex-basis: 270px;
+    margin-right: 20px;
+    line-height: 2rem;
+}
+
+.title-web {
+    margin-bottom: 15px;
+}
+
+.product-detail {
+    margin-top: -15px;
+}
+
+.detail {
+    margin: 10px 0px;
+    line-height: 1.3rem;
 }
 
 .flex-color {

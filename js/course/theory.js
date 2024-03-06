@@ -667,4 +667,114 @@ catch(e) {
       Trying to do it resulted in the following`, e);
 }
 
+
+
+
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Fireze Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegatable', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 24,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 10,
+      close: 20,
+    },
+  },
+
+  order: function(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery: function(info) {
+    console.log(info);
+  },
+
+  infoOrder: function({starterIndex=0, mainIndex=0, time='22h30', address='Viet Nam'}) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  }
+};
+
+
+// const [first, ,second] = restaurant.categories;
+// console.log(first, second);
+
+
+
+// const [starter, main] = restaurant.order(0, 2);
+
+
+// console.log(starter, main);
+
+
+const {name, openingHours, categories} = restaurant;
+
+console.log(name, openingHours, categories);
+
+// set default value 
+
+const {menu=[], starterMenu: starter= []} = restaurant;
+
+console.log(menu, starter);
+
+// mutating values
+
+let a=82457234;
+let b=34532;
+
+const ojb ={a: 23, b: 45, c:34};
+
+({a, b}=ojb);
+
+console.log(a, b);
+
+
+// nested objects
+
+// truy caop vao thu sau
+const {fri}=openingHours;
+console.log(fri);
+
+// access child elements
+
+const {sat: {open, close}} =openingHours;
+
+console.log(open, close);
+
+
+
+restaurant.orderDelivery({
+  time: '22',
+  address: 'Chau Thanh Tien Giang',
+  mainIndex: '2',
+  starterIndex: '0',
+})
+
+restaurant.infoOrder({
+  time: '22',
+  address: 'Chau Thanh Tien Giang',
+  mainIndex: '2',
+  starterIndex: '0',
+})
+
+restaurant.infoOrder({
+  time: '22',
+  starterIndex: '0',
+})
+
+
 */
+
+
