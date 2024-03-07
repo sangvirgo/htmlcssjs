@@ -775,6 +775,130 @@ restaurant.infoOrder({
 })
 
 
+
+
+// the spread operator
+
+const arr = [7, 8, 9];
+
+const newArr = [1, 2, 3, ...arr];
+
+console.log(newArr);
+
+console.log(...newArr);
+
+const restaurant = {
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Fireze Italy",
+  categories: ["Italian", "Pizzeria", "Vegatable", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 24,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 10,
+      close: 20,
+    },
+  },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery: function (info) {
+    console.log(info);
+  },
+
+  infoOrder: function ({
+    starterIndex = 0,
+    mainIndex = 0,
+    time = "22h30",
+    address = "Viet Nam",
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`,
+    );
+  },
+};
+
+const newMenu = [...restaurant.mainMenu, "banh xeo", "hu tieu"];
+
+console.log(newMenu);
+
+// separates each characters in a string
+
+const name = "Sang";
+
+const eachCharacters = [...name];
+
+console.log(eachCharacters);
+console.log(...eachCharacters);
+
+
+// Spread object
+const newRestaurant={foundedIn: 1998, ...restaurant, founder: "Sang"};
+console.log(newRestaurant);
+
+
 */
 
 
+const restaurant = {
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Fireze Italy",
+  categories: ["Italian", "Pizzeria", "Vegatable", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 24,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 10,
+      close: 20,
+    },
+  },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery: function (info) {
+    console.log(info);
+  },
+
+  infoOrder: function ({
+    starterIndex = 0,
+    mainIndex = 0,
+    time = "22h30",
+    address = "Viet Nam",
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`,
+    );
+  },
+};
+
+// Rest Pattern 
+const [a, b, ...others] = [1, 2, 3, 4, 5, 6];
+
+console.log(a, b, ...others);
+
+// some
+const [str1, str2, ...otherFood] = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+console.log(str1, str2, ...otherFood);

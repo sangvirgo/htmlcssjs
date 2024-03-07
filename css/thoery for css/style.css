@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   /* Giá trị thông thường của box-sizing là content-box, điều này có nghĩa là kích thước của phần tử chỉ bao gồm nội dung bên trong và không tính thêm đường biên và đệm.
@@ -31,8 +31,7 @@ header {
   /* border: 2px solid black; */
 }
 
-
-ul, 
+ul,
 ol {
   margin-left: 50px;
   margin-bottom: 20px;
@@ -65,7 +64,7 @@ h3 {
 h4 {
   color: purple;
   font-size: 20px;
-  text-align:left;
+  text-align: left;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -84,7 +83,7 @@ li {
 
 #author {
   font-style: italic;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .clear-list {
@@ -95,18 +94,17 @@ li {
 }
 
 .reset-list {
-  list-style:lower-roman; 
+  list-style: lower-roman;
 }
-
 
 /* lop gia  */
 
 /* phan tu dau tien */
- li:first-child {
+li:first-child {
   font-weight: bold;
- }
+}
 
- li:last-child {
+li:last-child {
   font-style: italic;
 }
 
@@ -126,7 +124,7 @@ li:nth-child(even) {
 
 /* link mac dinh */
 a:link {
-  color: rgb(17, 0, 255); 
+  color: rgb(17, 0, 255);
 }
 
 /* lnk da duoc ghe tham  */
@@ -151,9 +149,7 @@ a:active {
 .Title-all::first-letter {
   font-style: normal;
   color: red;
-
 }
-
 
 /* only the line after h3 are affected  */
 h3 + p::first-line {
@@ -211,13 +207,12 @@ footer p{
 
 */
 
-
 /* types of boxes */
 li {
   /* viet cac list thanh mot hang ngang */
   /* display: inline; */
 
-/* DISPLATY theo cac block */
+  /* DISPLATY theo cac block */
   /* display: block; */
   margin: 10px;
 }
@@ -229,7 +224,7 @@ nav a:link {
 }
 
 nav a:last-child {
-  margin-right:0;
+  margin-right: 0;
 }
 
 .picture-html {
@@ -238,25 +233,21 @@ nav a:last-child {
   margin: 0 0 30px 0;
 }
 
-
 .btn-like {
   font-size: 20px;
   cursor: pointer;
   padding: 15px;
-
 
   position: absolute;
   bottom: 0;
   right: 0;
 }
 
- .author-img {
+.author-img {
   /* float: left; đặt phần tử author-img nổi lên về phía 
   trái và cho phép các phần tử khác theo sau nó theo chiều ngang.*/
   /* float: left; */
-
 }
-
 
 /* .author {
   padding-left: 80px;
@@ -286,10 +277,8 @@ nav a:last-child {
 .clearfix::after {
   clear: both;
   display: block;
-  content: '';
+  content: "";
 }
-
-
 
 /* 
 article {
@@ -311,9 +300,8 @@ aside {
 
 .related {
   list-style: none;
-  margin-left: 0; 
+  margin-left: 0;
 }
-
 
 aside {
   background-color: #afafaf2b;
@@ -325,19 +313,17 @@ aside {
   /* border-bottom: 10px dashed rgba(150, 30, 132, 0.764);
   border-top: 10px dotted rgba(42, 36, 192, 0.764); */
   padding: 40px 30px;
-  border-bottom:5px  #1098ad solid;
-  border-top:5px  #1098ad solid;
+  border-bottom: 5px #1098ad solid;
+  border-top: 5px #1098ad solid;
   margin-top: 40px;
 }
 
-
 /* FlexBox */
-
 
 /* .header-title {
   display: flex;
   /* align-items: center; */
-  /* justify-content: space-between; */
+/* justify-content: space-between; */
 /* }  */
 /* 
 .author-box {
@@ -382,8 +368,8 @@ article {
 } */
 
 /* aside { */
-  /* flex-basis: 300px; */
-  /* flex:0 1 300px;
+/* flex-basis: 300px; */
+/* flex:0 1 300px;
 } */
 
 /* Grid box */
@@ -397,14 +383,13 @@ article {
 }
 
 .header-title {
-  grid-column: 1/ span 2 ;
+  grid-column: 1 / span 2;
 }
 
 .article-web {
   grid-column: 1;
   grid-row: 2;
 }
-
 
 .aside-web {
   grid-column: 2;

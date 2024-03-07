@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        /* vi da duoc mac dinh nen khong can dat them vao */
-    
-        /* margin: 0;
+  html {
+    /* vi da duoc mac dinh nen khong can dat them vao */
+
+    /* margin: 0;
         padding: 0;
         box-sizing: border-box; */
 
-        /* @apply bg-[#26ff0a] */
-    }
+    /* @apply bg-[#26ff0a] */
+  }
 }
