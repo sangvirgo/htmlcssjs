@@ -848,7 +848,6 @@ const newRestaurant={foundedIn: 1998, ...restaurant, founder: "Sang"};
 console.log(newRestaurant);
 
 
-*/
 
 
 const restaurant = {
@@ -901,4 +900,167 @@ console.log(a, b, ...others);
 // some
 const [str1, str2, ...otherFood] = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-console.log(str1, str2, ...otherFood);
+console.log(str1, str2, '\n', ...otherFood);
+
+// object 
+const {fri, ...otherDays} = restaurant.openingHours;
+
+console.log(otherDays);
+
+
+// Functions
+const add = (...numbers) => {
+  let sum=0;
+ numbers.forEach(element => {
+  sum+=element;
+ });   
+ console.log(sum);
+}
+
+add(2, 3);
+add(2, 3, 3, 5);
+add(2, 3, 3, 2, 2);
+add(2, 3, 4, 3345, 343);
+
+
+// Short ciruiting  
+
+// Trong JavaScript, toán tử || được gọi là toán tử "hoặc". Khi bạn sử 
+// dụng toán tử này giữa hai giá trị, nó sẽ trả về giá trị đầu tiên có giá trị
+//  "truthy" (không phải false, undefined, null, 0, NaN hoặc một chuỗi rỗng), 
+//  hoặc giá trị cuối cùng nếu cả hai đều không "truthy".
+
+console.log('Sang' || 3);
+console.log(3 || 'Sang');
+
+// do cai dau la null r nen chon cia sau
+
+console.log(null || undefined);
+
+console.log(undefined || 0 || '' || 'Sang');
+
+
+
+// Trong JavaScript, toán tử && được gọi là toán tử "và". Khi bạn sử dụng 
+// toán tử này giữa hai giá trị, nó sẽ trả về giá trị cuối cùng nếu cả
+//  hai đều là "truthy", hoặc giá trị đầu tiên nếu một trong hai là "falsy".
+console.log('-----------AND----------');
+console.log('Sang' && 3);
+console.log(3 && 'Sang');
+console.log('' && 'Sang' && undefined);
+console.log(undefined && 'Sang' && '');
+// tra ve gia tri dau tien la falsy
+console.log('Hello' && 23 && null && 'Sang');
+
+
+
+
+// Trong JavaScript, toán tử ??, còn được gọi là Nullish Coalescing Operator,
+//  được sử dụng để trả về giá trị bên phải nếu giá trị bên trái là null 
+// hoặc undefined. Nó trả về giá trị bên trái nếu giá trị bên trái không phải
+//  là null hoặc undefined.
+
+console.log('-----------Nullish Coalescing operator----------');
+console.log(undefined ?? 3425);
+console.log(false ?? 33545);
+
+
+// Logical Assignment Operators
+const rest1 = {
+  name: 'Sang',
+  numGuests: 20,
+}
+
+const rest2 = {
+  name: 'Han',
+  address: 'Quan9',
+}
+
+rest1.numGuests ||= 23;
+rest2.numGuests ||= 10;
+
+console.log(rest1);
+console.log(rest2);
+
+rest1.secretNumber ??= 54;
+rest2.secretNumber ??= 69;
+
+console.log('-----------------');
+console.log(rest1);
+console.log(rest2);
+
+
+rest1.secretNumber &&= 'Yeu Gia Han';
+rest2.secretNumber &&= 'hihihih';
+
+console.log('-----------------');
+console.log(rest1);
+console.log(rest2);
+
+
+*/
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+  [
+  'Neuer',
+  'Pavard',
+  'Martinez',
+  'Alaba',
+  'Davies',
+  'Kimmich',
+  'Goretzka',
+  'Coman',
+  'Muller',
+  'Gnarby',
+  'Lewandowski',
+  ],
+  [
+  'Burki',
+  'Schulz',
+  'Hummels',
+  'Akanji',
+  'Hakimi',
+  'Weigl',
+  'Witsel',
+  'Hazard',
+  'Brandt',
+  'Sancho',
+  'Gotze',
+  ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
+  'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+  team1: 1.33,
+  x: 3.25,
+  team2: 6.5,
+  },
+  };
+
+const [players1, players2] = game.players;
+
+const [gk, ...fieldPlayers] = players1;
+
+const allPlayers = [...players1, ...players2];
+
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic']
+
+console.log(players1Final);
+
+const { odds: {team1, x: draw , team2}, } = game;
+
+console.log(team1, draw, team2);
+
+
+// 6
+const printGoals= function (...players) {
+  console.log(...players);
+  console.log(`${players.length} goals were scored`);
+}
+
+printGoals(...game.scored);
