@@ -3,6 +3,7 @@ import UseState1 from "./components/useState1"
 import TakeGift from "./components/TakeGift"
 import OneWayBinding from "./components/One-way-binding"
 import Radio from "./components/Radio"
+import Checkbox from "./components/Checkbox"
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <TakeGift/>
       <OneWayBinding/>
       <Radio/>
+      <Checkbox/>
     </h1>
   )
 }

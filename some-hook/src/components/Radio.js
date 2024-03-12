@@ -35,7 +35,7 @@ const Radio = () => {
         <div>
             <div className='mt-8 text-red-500 ml-8 text-[40px]'>
             {courses.map(course=> (
-                <div className='m-3' key={course.key}>
+                <div className='m-3' key={course.id}>
                     <input 
                         type='radio'
                         checked={checked===course.id}
