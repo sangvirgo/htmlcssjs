@@ -4,6 +4,8 @@ import TakeGift from "./components/TakeGift"
 import OneWayBinding from "./components/One-way-binding"
 import Radio from "./components/Radio"
 import Checkbox from "./components/Checkbox"
+import TodoList from "./components/TodoList"
+import Subscribe from "./components/Subscribe"
 
 export default function App() {
   return (
@@ -14,6 +16,8 @@ export default function App() {
       <OneWayBinding/>
       <Radio/>
       <Checkbox/>
+      <TodoList/>
+      <Subscribe/>
     </h1>
   )
 }
