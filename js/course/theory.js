@@ -998,7 +998,7 @@ console.log(rest1);
 console.log(rest2);
 
 
-*/
+
 
 const game = {
   team1: 'Bayern Munich',
@@ -1064,3 +1064,73 @@ const printGoals= function (...players) {
 }
 
 printGoals(...game.scored);
+
+
+*/
+
+
+// Looping Arrays
+
+const restaurant = {
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Fireze Italy",
+  categories: ["Italian", "Pizzeria", "Vegatable", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 24,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 10,
+      close: 20,
+    },
+  },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery: function (info) {
+    console.log(info);
+  },
+
+  infoOrder: function ({
+    starterIndex = 0,
+    mainIndex = 0,
+    time = "22h30",
+    address = "Viet Nam",
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`,
+    );
+  },
+};
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for(const item of menu) console.log(item);
+
+for(const item of menu.entries()) {
+  console.log(item);
+}
+
+console.log([...menu.entries()]);
+
+// print look like the menu 
+for(const item of menu.entries()) {
+  console.log(`${item[0]+1}: ${item[1]}`);
+}
+
+console.log('\n' + "way two");
+// way two
+
+for(const [i, el] of menu.entries()) {
+  console.log(`${i+1}: ${el}`);
+}
