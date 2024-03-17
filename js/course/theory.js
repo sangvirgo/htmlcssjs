@@ -1066,7 +1066,7 @@ const printGoals= function (...players) {
 printGoals(...game.scored);
 
 
-*/
+
 
 
 // Looping Arrays
@@ -1134,3 +1134,101 @@ console.log('\n' + "way two");
 for(const [i, el] of menu.entries()) {
   console.log(`${i+1}: ${el}`);
 }
+
+
+
+// closure
+// la mot ham co the ghi nho noi no duoc toa vao truy cap vao bien o ben ngoai pham vi cua no
+function createCouter() {
+  let counter=0;
+
+  function increate() {
+    return ++counter;
+  }
+
+  return increate;
+}
+
+
+const counter = createCouter();
+// duoc tham chieu toi ham gan nhat
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+
+
+// ung dung
+function createLogger(namespace) {
+  function logger(message) {
+    console.log(`${namespace} ${message}`);
+  }
+  return logger;
+}
+
+const logger= createLogger('Complete!');
+
+
+logger(`sending email`);
+logger('hacker into NASA');
+
+const logger1= createLogger('Error');
+
+
+logger1(`Dam thang ngu Thua`);
+logger1('Dam thang ngu Nhung');
+
+
+
+// xu ly bat dong bo
+
+
+// dong bo
+// di theo thu tu nhat dinh
+
+console.log(1);
+console.log(2);
+console.log(3);
+
+
+// bat dong bo
+// 1 bang mot milisecond
+// 2000 bang 2 giay
+
+// dong bo luon luon thuc hien truoc
+
+let process1= setTimeout(function(){
+  console.log(4);
+}, 2000);
+
+clearTimeout(process1);
+
+console.log(5);
+
+let process2= setTimeout(function(){
+  console.log(6);
+}, 2000);
+
+let process3= setTimeout(function(){
+  console.log(7);
+}, 2000);
+
+
+// set interval
+
+const process4=setInterval(()=>{
+  console.log("hello");
+}, 2000);
+
+
+clearInterval(process4);
+
+*/
+// clock
+
+console.log(new Date());
+
+const clock=setInterval(()=>{
+  const date=new Date();
+  console.log(date.getHours(), date.getMinutes(), date.getSeconds());
+}, 1000);
