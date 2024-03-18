@@ -43,7 +43,6 @@
   }
 }
 
-
 .promo-section {
   display: flex;
   flex-direction: row;
@@ -116,8 +115,6 @@
   text-align: center;
   margin: 10px auto;
 }
-
-
 
 .container {
   width: 100%;

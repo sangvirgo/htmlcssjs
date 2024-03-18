@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        button {
-            margin: 20px;
-            color: whitesmoke;
-            background-color: skyblue;
-            size: 30px;
-            padding: 15px;
-        }
+  html {
+    button {
+      margin: 20px;
+      color: whitesmoke;
+      background-color: skyblue;
+      size: 30px;
+      padding: 15px;
     }
+  }
 }

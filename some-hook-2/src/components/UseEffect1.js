@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 /*
 1. useEffect({callBack})
 -goi callBack moi khi component duoc re-render
@@ -11,40 +11,37 @@ import React, { useEffect, useState } from 'react';
 
 */
 
-
 const UseEffect1 = () => {
-    const [toggle, setToggle] = useState(false);
-    const [title, setTitle] = useState('');
+  const [toggle, setToggle] = useState(false);
+  const [title, setTitle] = useState("");
 
-    const handleToggle=() => {
-        setToggle(!toggle);
-    }
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
 
-    // useEffect
-    useEffect(()=>{
-        console.log("Mounted!");
-        // thay doi title web
-        document.title=title;
-    })
+  // useEffect
+  useEffect(() => {
+    console.log("Mounted!");
+    // thay doi title web
+    document.title = title;
+  });
 
-    return (
-        <div>
-            <button onClick={handleToggle}>
-                Toggle
-            </button>
+  return (
+    <div>
+      <button onClick={handleToggle}>Toggle</button>
 
-            {toggle && <h1>He lo cac ban!!!!!!</h1>}
+      {toggle && <h1>He lo cac ban!!!!!!</h1>}
 
-            <input
-                value={title}
-                onChange={(e)=>{setTitle(e.target.value)}}
-            />
+      <input
+        value={title}
+        onChange={(e) => {
+          setTitle(e.target.value);
+        }}
+      />
 
-
-
-            {/* call apif  */}
-        </div>
-    );
-}
+      {/* call apif  */}
+    </div>
+  );
+};
 
 export default UseEffect1;

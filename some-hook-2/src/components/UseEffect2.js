@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 /*
 1. useEffect({callBack})
@@ -14,91 +14,85 @@ callBack duoc goi lai sau moi khi deps duoc thay doi
 2.Clearnup function luon duoc goi truoc khi function duoc unmounted
 */
 
-const tab= ['posts', 'comments', 'albums'];
+const tab = ["posts", "comments", "albums"];
 
 const UseEffect2 = () => {
-    const [toggle, setToggle] = useState(false);
-    const [posts, setPosts] = useState([]);
-    const [type, setType] = useState('posts');
-    const [showGoToStop, setShowGoToStop] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [type, setType] = useState("posts");
+  const [showGoToStop, setShowGoToStop] = useState(false);
 
+  const handleCallApi = () => {
+    setToggle(!toggle);
+  };
 
-    const handleCallApi=() => {
-        setToggle(!toggle);
-    }
+  // function to top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
-    // function to top
-    const scrollToTop=()=>{
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
+  useEffect(() => {
+    if (toggle) {
+      fetch(`https://jsonplaceholder.typicode.com/${type}`)
+        .then((res) => res.json())
+        .then((posts) => {
+          setPosts(posts);
         });
+    }
+  }, [toggle]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      window.scrollY >= 200 ? setShowGoToStop(true) : setShowGoToStop(false);
     };
 
-    useEffect(()=>{
-        if(toggle) {
-            fetch(`https://jsonplaceholder.typicode.com/${type}`)
-            .then(res=>res.json())
-            .then(posts=>{
-                setPosts(posts);
-            });
-        }
-    }, [toggle]);
+    window.addEventListener("scroll", handleScroll);
+    console.log("Mounted!");
 
+    // Cleanup function
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      console.log("Unmounted");
+    };
+  }, []);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            (window.scrollY >= 200) ? setShowGoToStop(true) : setShowGoToStop(false);
-        }
-    
-        window.addEventListener('scroll', handleScroll);
-        console.log("Mounted!");
-    
-        // Cleanup function
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            console.log("Unmounted");
-        }
-    }, [])
-    
+  return (
+    <div>
+      {tab.map((tab) => (
+        <button
+          key={tab}
+          onClick={() => {
+            setType(tab);
+            handleCallApi();
+          }}
+          className={type === tab ? "text-black bg-red-500" : ""}
+        >
+          {tab}
+        </button>
+      ))}
 
+      {toggle && (
+        <ol className="list-decimal list-inside">
+          {posts.map((post) => (
+            <li key={post.id}>{post.title || post.body}</li>
+          ))}
+        </ol>
+      )}
 
-
-    return (
-        <div>
-        {tab.map(tab=>(
-            <button 
-                key={tab}
-                onClick={() =>{setType(tab); handleCallApi();}}
-                className={type===tab ? 'text-black bg-red-500': ''}
-                >
-                {tab}
-            </button>
-        ))}
-
-
-        {toggle && (
-            <ol className='list-decimal list-inside'>
-                {posts.map(post=>(
-                        <li key={post.id}>{post.title || post.body}</li>
-                        ))}
-            </ol>
-        )}
-
-
-        {/* the gototop button  */}
-        {showGoToStop&& (
-            <button className='fixed right-6 bottom-7' onClick={scrollToTop} >
-                Go to top
-            </button>
-        )}
-
-        </div>
-    );
-}
+      {/* the gototop button  */}
+      {showGoToStop && (
+        <button className="fixed right-6 bottom-7" onClick={scrollToTop}>
+          Go to top
+        </button>
+      )}
+    </div>
+  );
+};
 
 export default UseEffect2;
-
 
 /*
 useEffect hook:

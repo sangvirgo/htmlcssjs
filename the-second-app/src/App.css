@@ -37,7 +37,6 @@
   }
 }
 
-
 .navigation {
   background-color: pink;
   display: flex;
@@ -45,8 +44,8 @@
 }
 
 .nav-item {
-    font-size: 30px;
-    margin-right: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
+  font-size: 30px;
+  margin-right: 20px;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
 }

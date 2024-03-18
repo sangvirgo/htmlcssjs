@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function RegisterForm() {
   const [form, setForm] = useState({
-    firstName: 'Luke',
-    lastName: 'Jones',
-    email: 'lukeJones@sculpture.com',
+    firstName: "Luke",
+    lastName: "Jones",
+    email: "lukeJones@sculpture.com",
   });
 
   return (
@@ -13,10 +13,10 @@ export default function RegisterForm() {
         First name:
         <input
           value={form.firstName}
-          onChange={e => {
+          onChange={(e) => {
             setForm({
               ...form,
-              firstName: e.target.value
+              firstName: e.target.value,
             });
           }}
         />
@@ -25,10 +25,10 @@ export default function RegisterForm() {
         Last name:
         <input
           value={form.lastName}
-          onChange={e => {
+          onChange={(e) => {
             setForm({
               ...form,
-              lastName: e.target.value
+              lastName: e.target.value,
             });
           }}
         />
@@ -37,21 +37,17 @@ export default function RegisterForm() {
         Email:
         <input
           value={form.email}
-          onChange={e => {
+          onChange={(e) => {
             setForm({
               ...form,
-              email: e.target.value
+              email: e.target.value,
             });
           }}
         />
       </label>
       <p>
-        {form.firstName}{' '}
-        {form.lastName}{' '}
-        ({form.email})
+        {form.firstName} {form.lastName} ({form.email})
       </p>
     </>
   );
 }
-
-
