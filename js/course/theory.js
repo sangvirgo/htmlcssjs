@@ -1223,7 +1223,7 @@ const process4=setInterval(()=>{
 
 clearInterval(process4);
 
-*/
+
 // clock
 
 console.log(new Date());
@@ -1232,3 +1232,54 @@ const clock=setInterval(()=>{
   const date=new Date();
   console.log(date.getHours(), date.getMinutes(), date.getSeconds());
 }, 1000);
+
+
+*/
+
+// value types (primitive data types)
+// string, number, boolean, bigint, symbol, underfined, null
+
+// Reference types (non-primitive data types)
+// object, array, function
+
+let a= {
+  name: 'Mercedes'
+}
+
+// tao mot bien a cap mot bo nho vao bo nho, sau do tra ve dia chi da luu va gan cho bien
+
+let b=a;
+
+// tao ra bien b tro bien b toi cung dia chi bo nho cua bien a
+
+a.name='BMW';
+
+console.log(b);
+
+
+const student = {
+  name: "tan sang",
+  profile: {
+    firstName: "tan",
+    lastName: 'Sang',
+    introduction: 'boy',
+  }
+}
+
+// dau tien tao objec ten profile voi diaj chi bo nho 
+// sau do gan no vao object
+
+
+// tham tri
+function sum(a, b) {
+  a=0; 
+  b=0;
+  console.log(a, b);
+}
+
+const c=34;
+const d=3533;
+
+sum(c, d);
+
+console.log(c, d);
