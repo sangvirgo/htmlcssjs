@@ -1382,3 +1382,8 @@ console.log(values);
 // tra ve thu tu voi mot object
 const entries=Object.entries(openingHours);
 console.log(entries);
+
+
+for(const [key, {open, close}] of Object.entries(openingHours)) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
