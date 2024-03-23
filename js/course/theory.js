@@ -1117,6 +1117,8 @@ const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 for(const item of menu) console.log(item);
 
+
+// tra ve cap khoa gia tri
 for(const item of menu.entries()) {
   console.log(item);
 }
@@ -1234,7 +1236,7 @@ const clock=setInterval(()=>{
 }, 1000);
 
 
-*/
+
 
 // value types (primitive data types)
 // string, number, boolean, bigint, symbol, underfined, null
@@ -1283,3 +1285,100 @@ const d=3533;
 sum(c, d);
 
 console.log(c, d);
+
+*/
+const weekend=['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+
+const openingHours ={
+  [weekend[3]]: {
+    open: 12,
+    close: 24,
+  },
+  [weekend[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekend[5]]: {
+    open: 10,
+    close: 20,
+  },
+};
+
+const restaurant = {
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Fireze Italy",
+  categories: ["Italian", "Pizzeria", "Vegatable", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+
+  // Enhanced Object Literals
+  openingHours,
+
+
+
+  // fix syntax
+  order(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery(info) {
+    console.log(info);
+  },
+
+  infoOrder({
+    starterIndex = 0,
+    mainIndex = 0,
+    time = "22h30",
+    address = "Viet Nam",
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`,
+    );
+  },
+};
+
+
+// Optional Chaining 
+
+// if nos khong co thi se la undefined
+console.log(restaurant.openingHours.mon?.open);
+
+
+// practical examples
+const days=['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+
+for(const day of days) {
+  // console.log(day);
+  const open= restaurant.openingHours[day]?.open;
+  console.log(`On ${day}, We open at ${open}.`);
+}
+
+
+console.log(restaurant.order?.(0, 2) ?? "Method does not exit");
+
+console.log(restaurant.orderDelivery?.(0, 2) ?? "Method does not exit");
+
+const users=[{
+  name: "Sang",
+  email: 'sdfhas@gamil.com',
+}]
+
+console.log(users[0]?.name  ?? "user array empty!");
+
+
+// Property Name
+const properties=Object.keys(openingHours);
+
+console.log(properties);
+
+console.log(`We are open on ${properties.length} days`);
+
+// Property Value 
+const values=Object.values(openingHours);
+console.log(values);
+
+
+// tra ve thu tu voi mot object
+const entries=Object.entries(openingHours);
+console.log(entries);
