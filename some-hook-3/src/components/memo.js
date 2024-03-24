@@ -22,7 +22,7 @@ const Memo = () => {
     };
 
     return (
-        <div className='border-4 border-separate border-yellow-500 '>
+        <div className='border-4 border-separate border-yellow-500 m-3'>
             <ChildOfMemo />
 
             <h1 className='text-5xl m-5 justify-center flex'>{count}</h1>
