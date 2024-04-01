@@ -21,7 +21,7 @@ const TodoList = () => {
       const updatedJobs = [...jobs, inputValue];
       setJobs(updatedJobs);
       setInputValue("");
-
+      
       localStorage.setItem("jobs", JSON.stringify(updatedJobs));
     } else {
       setInputValue("");
