@@ -1575,3 +1575,64 @@ const restaurant = {
 
 
 // Map
+
+const rest=new Map();
+rest.set("Name", "Tan Sang");
+rest.set("HomeTown", "Tien Giang");
+
+rest
+  .set('wakup', 9)
+  .set(2, "I am Soang hai ka tu")
+  .set("Go To Bed", 1)
+  .set('School', "Ptit")
+  .set(true, "I get up")
+  .set(false, "I am sleeping")
+
+console.log(rest.get("wakup"));
+
+const time=21;
+console.log(rest.get(time > rest.get('wakup') && time > rest.get('Go To Bed')));
+
+
+// method
+console.log(rest.has("Sang"));
+
+// delete an element 
+console.log(rest);
+rest.delete(2);
+console.log(rest);
+
+
+// size of map
+console.log(rest.size);
+
+// clear map
+rest.clear();
+
+// khi tao arr func hay ob thi nho no cung chunmg bo nho
+
+const arr=[1, 2];
+rest.set(arr, "Test");
+rest.set([1, 2], "Test");
+rest.set(document.querySelector(".TitleOfWeb"), "Heading");
+
+console.log(rest.get(arr));
+console.log(rest.get([1, 2]));
+
+console.log(rest);
+
+
+// Map
+
+const question=new Map([
+  ['Question', "What is the best programing language in the world?"],
+  [1, 'C++'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  [4, 'TypeScript']
+  ['Correct', 3],
+  [true, "Correct ⭐"],
+  [false, "Try again⭕"]
+])
+
+console.log(question);
