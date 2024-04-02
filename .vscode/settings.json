@@ -56,5 +56,7 @@
     "**/.next/**"
   ],
   "todohighlight.maxFilesForSearch": 5120,
-  "todohighlight.toggleURI": true
+  "todohighlight.toggleURI": true,
+  "git.ignoreLimitWarning": true,
+  "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }
