@@ -1629,7 +1629,7 @@ const question=new Map([
   [1, 'C++'],
   [2, 'Java'],
   [3, 'JavaScript'],
-  [4, 'TypeScript']
+  [4, 'TypeScript'],
   ['Correct', 3],
   [true, "Correct ⭐"],
   [false, "Try again⭕"]
