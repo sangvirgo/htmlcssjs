@@ -1528,49 +1528,8 @@ console.log(staffUnique);
 
 
 
-*/
-// Main restaurant 
-const restaurant = {
-  name: "Classico Italiano",
-  location: "Via Angelo Tavanti 23, Fireze Italy",
-  categories: ["Italian", "Pizzeria", "Vegatable", "Organic"],
-  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
-  mainMenu: ["Pizza", "Pasta", "Risotto"],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 24,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 10,
-      close: 20,
-    },
-  },
 
-  order: function (starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
-
-  orderDelivery: function (info) {
-    console.log(info);
-  },
-
-  infoOrder: function ({
-    starterIndex = 0,
-    mainIndex = 0,
-    time = "22h30",
-    address = "Viet Nam",
-  }) {
-    console.log(
-      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`,
-    );
-  },
-};
 
 
 
@@ -1621,8 +1580,51 @@ console.log(rest.get([1, 2]));
 
 console.log(rest);
 
-
+*/
 // Map
+
+// Main restaurant 
+const restaurant = {
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Fireze Italy",
+  categories: ["Italian", "Pizzeria", "Vegatable", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 24,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 10,
+      close: 20,
+    },
+  },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery: function (info) {
+    console.log(info);
+  },
+
+  infoOrder: function ({
+    starterIndex = 0,
+    mainIndex = 0,
+    time = "22h30",
+    address = "Viet Nam",
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`,
+    );
+  },
+};
 
 const question=new Map([
   ['Question', "What is the best programing language in the world?"],
@@ -1636,3 +1638,25 @@ const question=new Map([
 ])
 
 console.log(question);
+
+
+// const hoursMap=new Map(Object.entries(restaurant.openingHours))
+// tao map
+// console.log(hoursMap);
+
+
+// in du lieu duoi dang mang
+// console.log(Object.entries(restaurant.openingHours));
+
+
+const myAnswer=4;
+
+console.log(question.get("Question"));
+for(const [key, value] of question) {
+  (typeof key ==='number') ? console.log(`Answer ${key}: ${value}`) : '';
+}
+console.log(`Your answer: ${myAnswer}`);
+console.log(question.get((myAnswer===3)));
+
+// convert map to arr
+console.log(...question);
