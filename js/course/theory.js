@@ -1685,7 +1685,6 @@ const taskMap= new Map([
   [true, "repeat"]
 ])
 
-*/
 
 // Your tasks:
 // 1. Create an array 'events' of the different game events that happened (no
@@ -1729,3 +1728,7 @@ console.log(gameEvents);
 for(const [time, event] of gameEvents.entries()) {
   (time<45) ? console.log(`[FIRST HALF] ${time}: ${event}`) : console.log(`[SECOND HALF] ${time}: ${event}`)
 }
+
+*/
+
+// Working with Strings
