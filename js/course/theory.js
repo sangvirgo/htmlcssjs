@@ -1732,3 +1732,85 @@ for(const [time, event] of gameEvents.entries()) {
 */
 
 // Working with Strings
+
+const airline = "TAP Air Portugal";
+const plane = "A320";
+
+console.log(plane[0]);
+console.log('A320'[0]);
+
+console.log('A320'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+
+// if not found return -1
+console.log(airline.indexOf('portugal'));
+console.log(airline.indexOf('Portugal'));
+
+// The slice() method in JavaScript is used to extract a section of a string without modifying the original string. It takes two parameters: the starting index (inclusive), and the ending index (exclusive). If the ending index is not provided, it extracts till the end of the string.
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+// -1 = the last character of string
+console.log(airline.slice(-1));
+
+const checkMiddleSeat = function (seat) {
+  const b = seat.slice(-1);
+  (b === 'B' || b === 'E' ) ? console.log('You got the middle seat') : console.log('You got lucky');
+}
+
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('Sang'));
+console.log(typeof new String('Sang'));
+
+// Kết quả đầu tiên sẽ in ra [String: 'Sang'], là một cách biểu diễn của đối tượng chuỗi được tạo ra bằng cách sử dụng constructor String.
+
+// Kết quả thứ hai sẽ in ra object, cho biết kiểu dữ liệu của đối tượng được tạo ra là một đối tượng.
+
+
+console.log(airline.toUpperCase());
+console.log(airline.toLowerCase());
+
+// format name
+const myName='nguyen luu tan sang';
+const temp =myName.split(' '); // tach chuoi thanh cac chu
+
+const capitalizeName=temp.map(temp=>temp[0].toUpperCase() + temp.slice(1))
+
+const nameCorrect=capitalizeName.join(' ');
+console.log(nameCorrect);
+
+// format email
+const email1='   shajfdhjas@gmail.com';
+const email2='hihih@gmail.com       ';
+
+const formatEmail=(email) =>{
+  return email.trim().toLowerCase();
+}
+
+console.log(formatEmail(email1));
+console.log(formatEmail(email2));
+
+
+// replaceing
+const priceVN='670,000,000VND';
+const priceUS=priceVN.replace('VND', '$').replaceAll(',', '.');
+console.log(priceUS);
+
+// notes: replace only replace the first math, so that we need to use replaceAll
+
+
+// booleans
+console.log(airline.includes('Sang'));
+
+console.log(airline.startsWith('Sang'));
+console.log(airline.startsWith('TAP'));
