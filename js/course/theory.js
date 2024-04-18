@@ -1729,7 +1729,7 @@ for(const [time, event] of gameEvents.entries()) {
   (time<45) ? console.log(`[FIRST HALF] ${time}: ${event}`) : console.log(`[SECOND HALF] ${time}: ${event}`)
 }
 
-*/
+
 
 // Working with Strings
 
@@ -1814,3 +1814,131 @@ console.log(airline.includes('Sang'));
 
 console.log(airline.startsWith('Sang'));
 console.log(airline.startsWith('TAP'));
+
+// split
+console.log('sang+luu+tan+sang'.split('+'));
+
+const [firstName, lastName]='Nguyen Sang'.split(' ');
+
+const newName1=['Mr.', firstName, lastName.toUpperCase()];
+
+console.log(newName1.join(' '));
+// Phương thức join() trong JavaScript được sử dụng để nối tất cả các phần tử của một mảng thành một chuỗi. Các phần tử sẽ được phân cách bằng một ký tự hoặc chuỗi bạn chỉ định.
+
+const capitalizeName1= (name) => {
+  const names=name.split(' ');
+  console.log((names.map(temp=> temp.replace(temp[0], temp[0].toUpperCase()))).join(' '));
+}
+
+capitalizeName1('nguyen sang'); 
+capitalizeName1('nguyen luu tan sang');
+
+
+// Padding
+const message='Go to gate 23!';
+// console.log(message.length); //14
+console.log(message.padStart(30, "+").padEnd(40, "+"));
+console.log('Sang'.padStart(30, "+").padEnd(40, "+"));
+
+// The padStart() method is called on the message string with a total length of 30 and a padding string of "+". The length of the message string is 15 characters, so the padding string "+" will be repeated 15 times to reach a total length of 30 characters.
+
+const markCreditCard = (num) =>{
+  const last=String(num).slice(-4);
+  return last.padStart(String(num).length, '*')
+} 
+
+console.log(markCreditCard('123456789'));
+console.log(markCreditCard(123456789123456789));
+console.log(markCreditCard(346545334523456789));
+
+
+// Repeat
+const message2='Bad weather... All Departures Delayed... ';
+console.log(message2.repeat(5));
+
+
+const rocketsInShy =(n) => {
+  console.log(`${'🚀'.repeat(n)}`);
+}
+
+rocketsInShy(10);
+
+// more information: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace 
+
+
+
+// Coding Challenge #4
+// Write a program that receives a list of variable names written in underscore_case
+// and convert them to camelCase.
+// The input will come from a textarea inserted into the DOM (see code below to
+// insert the elements), and conversion will happen when the button is pressed.
+// Test data (pasted to textarea, including spaces):
+// 
+// underscore_case
+// first_name
+// Some_Variable
+// calculate_AGE
+// delayed_departure
+
+// Should produce this output (5 separate console.log outputs):
+// underscoreCase✅
+// firstName
+// ✅✅
+// someVariable
+// calculateAge✅✅✅
+// ✅✅✅✅
+// delayedDeparture✅✅✅✅✅
+
+// Hints:
+// §Remember which character defines a new line in the textarea 😉
+// §The solution only needs to work for a variable made out of 2 words, like a_b
+// §Start without worrying about the ✅. Tackle that only after you have the variable
+// name conversion working 😉
+// §
+// This challenge is difficult on purpose, so start watching the solution in case
+// you're stuck. Then pause and continue!
+// Afterwards, test with your own test data!
+// GOOD LUCK 😀
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+
+const convertToCamelCase = (stringg) => {
+  const string1 = stringg.split('\n');
+  string1.map((wordss, index)=>{
+    const words= wordss.split('_');
+    const result= words[0][0].toLowerCase() +words[0].slice(1) + words.slice(1).map(word=>word[0].toUpperCase() + word.slice(1).toLowerCase()).join('') + '✅'.repeat(index+1);
+    console.log(result);
+  })
+}
+
+document.querySelector('textarea').addEventListener("keypress", (event)=> {
+  // Kiểm tra xem phím đã được nhấn có phải là Enter không
+  if (event.keyCode === 13) {
+      // Ngăn chặn hành động mặc định của phím Enter (tránh tạo dòng mới trong textarea)
+      // event.preventDefault();
+
+      const text=document.querySelector('textarea').value;
+
+      convertToCamelCase(text);
+
+      document.querySelector('textarea').value='';
+  }
+}); 
+
+*/
+
+// String Methods Practice
+const flights ="_Delayed_Departure;fao93766109;txl2133758440;11:25+Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
+
+const flight=flights.split('+');
+flight.forEach((temp)=> {
+  const [type, from, to, time] = temp.split(';');
+  const from1=from.slice(0, 3).toUpperCase();
+  const to1=to.slice(0, 3).toUpperCase();
+  const time1=time.replace(':', 'h');
+  const result= `${(type.startsWith('_Delayed'))? '🔴' : ''} ${type.replaceAll('_', ' ')} from ${from1} to ${to1} (${time1})`;
+  console.log(result.padStart(50, ' '));
+})
+
+     
