@@ -1926,7 +1926,7 @@ document.querySelector('textarea').addEventListener("keypress", (event)=> {
   }
 }); 
 
-*/
+
 
 // String Methods Practice
 const flights ="_Delayed_Departure;fao93766109;txl2133758440;11:25+Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
@@ -1941,4 +1941,218 @@ flight.forEach((temp)=> {
   console.log(result.padStart(50, ' '));
 })
 
-     
+
+///////////////////////////////////////////////////////////////////////////////////////
+// a closer look at functions
+// default parameters   
+
+const bookings = [];
+
+const createBooking =(flightNum, numPassengers=1, price=199)=> {
+  const booking = {
+    flightNum,
+    numPassengers,
+    price,
+  }
+  console.log(booking);
+  bookings.push(booking);
+}
+
+createBooking('LH123');
+createBooking('LH123', 2, 800);
+createBooking('LH123', 5);
+
+console.log(bookings);
+
+
+// How Passing Arguments Works: Value vs. Reference
+const flight = 'LH234';
+const sang= {
+  name: 'Nguyen Sang',
+  passport: 3434343434,
+}
+
+const CheckIn=(flightNum, passenger)=> {
+  flightNum='LH999';
+  passenger.name='Mr.' + passenger.name;
+
+  if(passenger.passport === 3434343434) {
+    console.log('Check in');
+  } else {
+    console.log('Wrong passport');
+  }
+}
+
+// CheckIn(flight, sang);
+// console.log(flight);
+// console.log(sang);
+
+const newPassport= function(person) {
+  person.passport=Math.trunc(Math.random()*1000000000000);
+}
+
+newPassport(sang);
+CheckIn(flight, sang);
+console.log(sang); 
+
+
+
+
+// Higher-order function (Hàm bậc cao) trong lập trình là một hàm mà thực hiện ít nhất một trong hai việc sau:
+
+// Nhận một hoặc nhiều hàm như là tham số đầu vào.
+// Trả về một hàm như kết quả đầu ra.
+
+// Functions Accepting Callback Functions
+const oneWord = function (str) {
+  // find all the space and replace it with nothing then lower case
+  return str.replace(/ /g, '').toLowerCase();
+}
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+}
+
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+  console.log(`Transformed by: ${fn.name}`);
+}
+
+transformer('JavaScript is the best!', upperFirstWord);
+transformer('JavaScript is the best!', oneWord);
+
+const greet = (meeting) => {
+  return (name) => {
+    console.log(`${meeting} ${name}`);
+  }
+}
+
+const hey = greet('Hey');
+hey('Sang');
+hey('Han');
+
+greet('Hello')('Sang');
+
+const greetHello = greeting => name => console.log(`${greeting} ${name}`);
+greetHello('Hello')('Sang');
+
+*/ 
+
+// The call and apply methods
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+
+  book(name, flightNum) {
+    console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+    this.bookings.push({flight: `${this.iataCode}${flightNum}`, name})
+  }
+}
+
+lufthansa.book('Sang', 239);  
+lufthansa.book('Han', 239);
+console.log(lufthansa);
+
+const book = lufthansa.book;
+// does not work
+// book('Tan', 239);
+
+book.call(lufthansa, 'Tan', 239);
+console.log(lufthansa);
+
+// Đoạn mã JavaScript này sử dụng phương thức call để gọi hàm book với một ngữ cảnh cụ thể (lufthansa) và hai tham số ('Tan', 239). Điều này cho phép chúng ta gọi hàm book như một phương thức của đối tượng lufthansa, thay vì gọi nó như một hàm độc lập.
+
+// apply method
+const flightData = ['Su', 149];
+book.apply(lufthansa, flightData);
+console.log(lufthansa);
+
+// call: Các đối số được truyền vào hàm một cách riêng lẻ, như các đối số bình thường của hàm. Ví dụ: func.call(thisArg, arg1, arg2, ...)
+
+// apply: Các đối số được truyền vào hàm dưới dạng một mảng. Ví dụ: func.apply(thisArg, [arg1, arg2, ...])
+
+// The bind Method
+const bookEW = book.bind(lufthansa);
+bookEW('Putin', 843);
+console.log(lufthansa);
+// Phương thức bind() trong JavaScript tạo ra một hàm mới, mà khi được gọi, có giá trị this được đặt thành giá trị được cung cấp, với một chuỗi đối số tiếp theo được đặt thành các đối số của hàm mới.
+
+// Cú pháp: func.bind(thisArg[, arg1[, arg2[, ...]]])
+
+// Trong đó:
+
+// thisArg: Giá trị this được cung cấp cho hàm khi chạy.
+// arg1, arg2, ...: Đối số được truyền vào hàm khi gọi hàm mới.
+
+
+const bookEW23 = book.bind(lufthansa, 'Sangnekk');
+bookEW23(214);
+bookEW23(546);
+
+lufthansa.place=300;
+lufthansa.buyFlight=function() {
+  console.log(this);
+
+  ++this.place;
+  console.log(lufthansa.place);
+}
+
+// document.querySelector('.buy').addEventListener('click', lufthansa.buyFlight.bind(lufthansa));
+// Trong trường hợp của bạn, lufthansa.buyFlight.bind(lufthansa) tạo ra một hàm mới mà khi được gọi, giá trị this trong hàm buyFlight sẽ là lufthansa.
+
+// practical example
+const addTax= (rate, value) => value + value*rate;
+
+const addVAT= addTax.bind(null, 0.31);
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+const calculateTax= (rate) => {
+  return (value) => {
+    return value +value*rate;
+  }
+}
+
+console.log(calculateTax(0.23)(100));
+
+// Coding Challenge #1
+// Let's build a simple poll app!
+// A poll has a question, an array of options from which people can choose, and an
+// array with the number of replies for each option. This data is stored in the starter
+// 'poll' object below.
+// Your tasks:
+// 1. Create a method called 'registerNewAnswer' on the 'poll' object. The
+// method does 2 things:
+// 1.1.
+// Display a prompt window for the user to input the number of the
+// selected option. The prompt should look like this:
+// What is your favourite programming language?
+// 0: JavaScript
+// 1: Python
+// 2: Rust
+// 3: C++
+// (Write option number)
+// 1.2.
+// Based on the input number, update the 'answers' array property. For
+// example, if the option is 3, increase the value at position 3 of the array by
+// 1. Make sure to check if the input is a number and if the number makes
+// sense (e.g. answer 52 wouldn't make sense, right?)
+// 2. Call this method whenever the user clicks the "Answer poll" button.
+// 3. Create a method 'displayResults' which displays the poll results. The
+// method takes a string as an input (called 'type'), which can be either 'string'
+// or 'array'. If type is 'array', simply display the results array as it is, using
+// console.log(). This should be the default option. If type is 'string', display a
+// string like "Poll results are 13, 2, 4, 1".
+// 4. Run the 'displayResults' method at the end of each
+// 'registerNewAnswer' method call.
+// 5. Bonus: Use the 'displayResults' method to display the 2 arrays in the test
+// data. Use both the 'array' and the 'string' option. Do not put the arrays in the poll
+// object! So what should the this keyword look like in this situation?
+// The Complete JavaScript Course
+// 20Test data for bonus:
+// §Data 1: [5, 2, 3]
+// §Data 2: [1, 5, 3, 9, 6, 1]
+// Hints: Use many of the tools you learned about in this and the last section 😉
