@@ -2038,7 +2038,7 @@ greet('Hello')('Sang');
 const greetHello = greeting => name => console.log(`${greeting} ${name}`);
 greetHello('Hello')('Sang');
 
-*/ 
+
 
 // The call and apply methods
 const lufthansa = {
@@ -2117,6 +2117,9 @@ const calculateTax= (rate) => {
 }
 
 console.log(calculateTax(0.23)(100));
+*/ 
+
+
 
 // Coding Challenge #1
 // Let's build a simple poll app!
@@ -2156,3 +2159,36 @@ console.log(calculateTax(0.23)(100));
 // §Data 1: [5, 2, 3]
 // §Data 2: [1, 5, 3, 9, 6, 1]
 // Hints: Use many of the tools you learned about in this and the last section 😉
+
+const poll = {
+  question: "What is your favourite programming language?",
+  options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
+  // This generates [0, 0, 0, 0]. More in the next section!
+  answers: new Array(4).fill(0),
+
+
+  registerNewAnswer() {
+    const inputUser = prompt(`${poll.question}\n${poll.options.join('\n')}`);
+    const choice = Number(inputUser);
+    if(choice>=0 && choice <=this.options.length-1 && typeof inputUser === 'number') {
+      this.answers[choice]++;
+      this.displayResults(); // default is array so we dont need to declare it
+      this.displayResults('string');//
+    } else {
+      alert("Wrong option number. Please try again.");
+    }
+  },
+
+displayResults(type='array') {
+    if(type=='array') {
+      console.log(this.answers);
+    } else if(type=='string') {
+      console.log(`Poll results are ${this.answers.join(', ')}`);
+    }
+  }
+};
+
+poll.displayResults.call({answers: [5, 2, 3]});
+poll.displayResults.call({answers: [5, 2, 3]}, 'string');
+
+document.querySelector(".answer").addEventListener('click', poll.registerNewAnswer.bind(poll)); 
