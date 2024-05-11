@@ -2117,7 +2117,7 @@ const calculateTax= (rate) => {
 }
 
 console.log(calculateTax(0.23)(100));
-*/ 
+
 
 
 
@@ -2167,6 +2167,7 @@ const poll = {
   answers: new Array(4).fill(0),
 
 
+  // quick function call
   registerNewAnswer() {
     const inputUser = prompt(`${poll.question}\n${poll.options.join('\n')}`);
     const choice = Number(inputUser);
@@ -2192,3 +2193,192 @@ poll.displayResults.call({answers: [5, 2, 3]});
 poll.displayResults.call({answers: [5, 2, 3]}, 'string');
 
 document.querySelector(".answer").addEventListener('click', poll.registerNewAnswer.bind(poll)); 
+
+
+// Immediately Invoked Function Expressions (IIFE)
+let isPublic=46;
+
+(()=>{
+  console.log('He loo cac ban ');
+  const isPrivate=23; // it is not accessable from outside
+  console.log(isPublic);
+})();
+
+
+// closure
+// la mot ham co the ghi nho noi no duoc toa vao truy cap vao bien o ben ngoai pham vi cua no
+const counter = () => {
+  let cnt=0;
+  return ()=> {
+    cnt++;
+    console.log(cnt);
+  }
+}
+
+// thì hàm sẽ được gọi nhưng giá trị trả về sẽ không được lưu lại, do đó bạn không thể gọi nó 
+// lại sau này
+// counter();
+// counter();
+// counter();
+
+const count=counter();
+count();
+count();
+count();
+
+console.dir(count);
+
+const dem = counter();
+dem();
+dem();
+
+
+// var is a global scope
+  // for(var i=0; i<3; i++) {
+  //   const log = () => {
+  //     console.log(i);
+  //   }
+  //   setTimeout(log, 100);
+  // }
+
+  // for(let i=0; i<3; i++) {
+  //   const log = () => {
+  //     console.log(i);
+  //   }
+  //   setTimeout(log, 100);
+  // }
+
+// example
+
+let b;
+let f;
+
+const g=() => {
+  const a=23;
+  f=() => {
+    console.log(a*2);
+  };
+}
+
+const h=() => {
+  const b=777;
+  f=() => {
+    console.log(b*2);
+  }
+}
+
+g(); 
+f();
+
+h();
+f();
+
+
+// example  2
+const boardPassenger = (n, wait) => {
+  const perGroup = n/3;
+  
+  setTimeout(() => {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  });
+  console.log(`Will start boarding in ${wait} seconds`);
+}
+
+const perGroup = 1000;
+boardPassenger(180, 3);
+
+
+// This is more of a thinking challenge than a coding challenge 🤓
+// Your tasks:
+// 1. Take the IIFE below and at the end of the function, attach an event listener that
+// changes the color of the selected h1 element ('header') to blue, each time
+// the body element is clicked. Do not select the h1 element again!
+// 2. And now explain to yourself (or someone around you) why this worked! Take all
+// the time you need. Think about when exactly the callback function is executed,
+// and what that means for the variables involved in this example.
+
+(function () {
+const header = document.querySelector('h1');
+header.style.color = 'red';
+
+document.querySelector('body').addEventListener('click', () => {
+  header.style.color = 'blue';
+});
+})();
+
+*/ 
+
+
+// BANKIST APP
+
+// Data
+const account1 = {
+  owner: 'Jonas Schmedtmann',
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
+};
+
+const account2 = {
+  owner: 'Jessica Davis',
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
+};
+
+const account3 = {
+  owner: 'Steven Thomas Williams',
+  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  interestRate: 0.7,
+  pin: 3333,
+};
+
+const account4 = {
+  owner: 'Sarah Smith',
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
+};
+
+const accounts = [account1, account2, account3, account4];
+
+// Elements
+const labelWelcome = document.querySelector('.welcome');
+const labelDate = document.querySelector('.date');
+const labelBalance = document.querySelector('.balance__value');
+const labelSumIn = document.querySelector('.summary__value--in');
+const labelSumOut = document.querySelector('.summary__value--out');
+const labelSumInterest = document.querySelector('.summary__value--interest');
+const labelTimer = document.querySelector('.timer');
+
+const containerApp = document.querySelector('.app');
+const containerMovements = document.querySelector('.movements');
+
+const btnLogin = document.querySelector('.login__btn');
+const btnTransfer = document.querySelector('.form__btn--transfer');
+const btnLoan = document.querySelector('.form__btn--loan');
+const btnClose = document.querySelector('.form__btn--close');
+const btnSort = document.querySelector('.btn--sort');
+
+const inputLoginUsername = document.querySelector('.login__input--user');
+const inputLoginPin = document.querySelector('.login__input--pin');
+const inputTransferTo = document.querySelector('.form__input--to');
+const inputTransferAmount = document.querySelector('.form__input--amount');
+const inputLoanAmount = document.querySelector('.form__input--loan-amount');
+const inputCloseUsername = document.querySelector('.form__input--user');
+const inputClosePin = document.querySelector('.form__input--pin');
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// LECTURES
+
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+/////////////////////////////////////////////////
