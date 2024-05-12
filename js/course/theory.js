@@ -2382,3 +2382,36 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+
+let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// similar to string, arrays also have some methods
+
+// slice method: if no argument, it will return a shallow copy of the array
+console.log(arr.slice(2));
+// lay vi tri thu 3 nhung khong lay thu 4
+console.log(arr.slice(3, 4));
+console.log(arr.slice(-3));
+console.log(arr.slice(1, -2));
+
+// splie methods: remove elements from array
+console.log(arr.splice(2)); // remove all elements from index 2
+console.log(...arr);
+console.log(arr.splice(-1));
+
+
+// reverse method: reverse the array
+let arr1=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(arr1.reverse());
+
+// concat method: merge two arrays
+const arr2=[a, b, c, d, e];
+const letters=arr1.concat(arr2);
+console.log(arr1.concat(arr2));
+
+
+// JOIN 
+console.log(letters.join('-'));
+
+// Câu console.log(letters.join('-')); trong JavaScript được sử dụng để nối các phần tử của một mảng thành một chuỗi, sử dụng một chuỗi ngăn cách được chỉ định và sau đó in ra chuỗi kết quả ra console.
