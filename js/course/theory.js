@@ -2379,39 +2379,71 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
 
-let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+// let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // similar to string, arrays also have some methods
 
 // slice method: if no argument, it will return a shallow copy of the array
-console.log(arr.slice(2));
-// lay vi tri thu 3 nhung khong lay thu 4
-console.log(arr.slice(3, 4));
-console.log(arr.slice(-3));
-console.log(arr.slice(1, -2));
+
+// console.log(arr.slice(2));
+// // lay vi tri thu 3 nhung khong lay thu 4
+// console.log(arr.slice(3, 4));
+// console.log(arr.slice(-3));
+// console.log(arr.slice(1, -2));
 
 // splie methods: remove elements from array
-console.log(arr.splice(2)); // remove all elements from index 2
-console.log(...arr);
-console.log(arr.splice(-1));
+// console.log(arr.splice(2)); // remove all elements from index 2
+// console.log(...arr);
+// console.log(arr.splice(-1));
 
 
 // reverse method: reverse the array
 let arr1=[1, 2, 3, 4, 5, 6, 7, 8, 9];
-console.log(arr1.reverse());
+// console.log(arr1.reverse());
 
 // concat method: merge two arrays
-const arr2=[a, b, c, d, e];
-const letters=arr1.concat(arr2);
-console.log(arr1.concat(arr2));
+// const arr2=[a, b, c, d, e];
+// const letters=arr1.concat(arr2);
+// console.log(arr1.concat(arr2));
 
 
 // JOIN 
-console.log(letters.join('-'));
+// console.log(letters.join('-'));
 
 // Câu console.log(letters.join('-')); trong JavaScript được sử dụng để nối các phần tử của một mảng thành một chuỗi, sử dụng một chuỗi ngăn cách được chỉ định và sau đó in ra chuỗi kết quả ra console.
+
+
+
+// at method: lay gia tri cua phan tu trong mang
+// example 
+// let arr1=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+console.log(arr1.at(2));
+console.log(arr1.at(-1));
+// or
+console.log(arr1.slice(-1)[0]);
+console.log('sang'.at(2));
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+for(const [i, movement] of movements.entries()) {
+  if(movement>0) {
+    console.log(`Movement ${i+1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i+1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log("============FOREACH================");
+// forEach method: loop through the array
+movements.forEach((movement, i)=>{
+  if(movement>0) {
+    console.log(`Movement ${i+1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i+1}: You withdrew ${Math.abs(movement)}`);
+  }
+})
