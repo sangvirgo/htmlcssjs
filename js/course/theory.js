@@ -2370,6 +2370,22 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 /////////////////////////////////////////////////
+
+
+const display = (mov) => {
+  movements.forEach((mov, i)=> {
+    const html= `<div class="movements__row">
+    <div class="movements__type movements__type--deposit">${i+1} deposit</div>
+    <div class="movements__date">3 days ago</div>
+    <div class="movements__value">4 000€</div>
+  </div>`
+  })
+}
+
+
+
+
+
 /////////////////////////////////////////////////
 // LECTURES
 
