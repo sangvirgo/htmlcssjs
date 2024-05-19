@@ -2395,8 +2395,13 @@ const display = (movements) => {
 
 display(account1.movements);
 
-
-
+const createUserNames = (accs)=> {
+  accs.forEach(acc=> {
+    acc.username=acc.owner.toLowerCase().split(' ').map(name=>name[0]).join('');
+  })
+}
+createUserNames(accounts);
+console.log(accounts);
 
 /////////////////////////////////////////////////
 // LECTURES
@@ -2470,16 +2475,16 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-currencies.forEach((value, key, map)=>{
-  console.log(`${key}: ${value}`);
-})
+// currencies.forEach((value, key, map)=>{
+//   console.log(`${key}: ${value}`);
+// })
 
 const currenciesUnique = new Set(['USD', 'EUR', 'USD', 'GBP', 'EUR']);
-console.log(currenciesUnique);
+// console.log(currenciesUnique);
 
-currenciesUnique.forEach((value, key, set)=> {
-  console.log(`${key}: ${value}`);
-})
+// currenciesUnique.forEach((value, key, set)=> {
+//   console.log(`${key}: ${value}`);
+// })
 
 
 
@@ -2526,3 +2531,23 @@ currenciesUnique.forEach((value, key, set)=> {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 // map method
+const eurToUsd=1.1;
+ 
+const movementsUSD = movements.map((mov) => mov*eurToUsd);
+// console.log(movements);
+
+
+const user = 'Steven Thomas Williams';
+const username = user.toLowerCase().split(" ").map((name) => {
+  return name[0];
+}).join('');
+// console.log(username);
+
+
+
+// filter method 
+const deposits = movements.filter(mov=> {
+  return mov > 0;
+})
+
+console.log(deposits);
