@@ -2413,7 +2413,7 @@ createUserNames(accounts);
 const calcDisplaySummary = (movs)=> {
   const incomes= movs.filter(mov=> mov>0).reduce((acc, mov)=> acc+mov, 0);
   const outcomes=movs.filter(mov=> mov<0).reduce((acc, mov)=> acc+mov, 0);
-  const interest=movs.filter(mov=> return mov>=1).map(mov=>mov*1.2/100).reduce((acc, mov)=> acc+mov, 0);
+  const interest=movs.filter(mov=> {return mov>=1}).map(mov=>mov*1.2/100).reduce((acc, mov)=> acc+mov, 0);
 
 
   labelSumIn.textContent=`${incomes}€`;
