@@ -2637,3 +2637,12 @@ const dogsKate=[5, 2, 4, 1, 15, 8, 3]
 const dogsJulia=[16, 6, 10, 5, 6, 1, 4]
 const combine= dogsJulia.concat(dogsKate);
 calcAverageHumanAge(dogsKate);
+
+
+
+// find method 
+
+// return the first element that satisfy the condition
+const theFirstWithdrawal = movements.find(mov=> {
+  return mov < 0;
+})
