@@ -2424,11 +2424,20 @@ calcDisplaySummary(account1.movements);
 
 
 
-// console.log(accounts);
+// handler the login
+let currentAccount;
+
+btnLogin.addEventListener('click', (e)=> {
+  e.preventDefault();
+
+  currentAccount=accounts.find(acc=> acc.username===inputLoginUsername.value);
+
+  console.log(currentAccount);
+})
 
 /////////////////////////////////////////////////
-// LECTURES
-
+/////////////////////LECTURES/////////////////////////
+//////////////////////////////////////////////////////
 
 
 
@@ -2630,7 +2639,7 @@ const calcAverageHumanAge = (ages)=> {
   const adults= human.reduce((accumulator, current)=> {
     return accumulator+current
   }, 0);
-  console.log(adults/human.length);
+  // console.log(adults/human.length);
 }
 
 const dogsKate=[5, 2, 4, 1, 15, 8, 3]
@@ -2646,3 +2655,6 @@ calcAverageHumanAge(dogsKate);
 const theFirstWithdrawal = movements.find(mov=> {
   return mov < 0;
 })
+// console.log(movements);
+// console.log(theFirstWithdrawal);
+
