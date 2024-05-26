@@ -27,7 +27,7 @@
         />
         <!-- In practice, use type="password" -->
         <input
-          type="text"
+          type="password"
           placeholder="PIN"
           maxlength="4"
           class="login__input login__input--pin"
@@ -124,5 +124,10 @@
     </footer> -->
 
     <script src="../theory.js"></script>
+    <script>
+      window.onload = () => {
+        document.querySelector('.login__input--user').focus();
+      };
+    </script>
   </body>
 </html>

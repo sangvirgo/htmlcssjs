@@ -2372,7 +2372,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 
 
-const display = (movements) => {
+const displayMovements = (movements) => {
 // inner html 
 // Bảo mật: Tránh chèn trực tiếp dữ liệu không tin cậy vào innerHTML vì có thể dẫn đến lỗ hổng bảo mật XSS (Cross-Site Scripting). Đảm bảo rằng dữ liệu được kiểm tra và xử lý an toàn trước khi chèn.
 
@@ -2393,14 +2393,12 @@ const display = (movements) => {
   })
 }
 
-display(account1.movements);
 
 const calcBalance = (mov)=> {
   const balance= mov.reduce((accumulator, current)=> {return accumulator + current}, 0);
   labelBalance.textContent= `${balance}€`;
 }
 
-calcBalance(account1.movements);
 
 const createUserNames = (accs)=> {
   accs.forEach(acc=> {
@@ -2410,17 +2408,16 @@ const createUserNames = (accs)=> {
 createUserNames(accounts);
 
 
-const calcDisplaySummary = (movs)=> {
-  const incomes= movs.filter(mov=> mov>0).reduce((acc, mov)=> acc+mov, 0);
-  const outcomes=movs.filter(mov=> mov<0).reduce((acc, mov)=> acc+mov, 0);
-  const interest=movs.filter(mov=> {return mov>=1}).map(mov=>mov*1.2/100).reduce((acc, mov)=> acc+mov, 0);
+const calcDisplaySummary = (acc)=> {
+  const incomes= acc?.movements.filter(mov=> mov>0).reduce((acc, mov)=> acc+mov, 0);
+  const outcomes=acc?.movements.filter(mov=> mov<0).reduce((acc, mov)=> acc+mov, 0);
+  const interest=acc?.movements.filter(mov=> {return mov>=1}).map(mov=>mov*acc?.interestRate/100).reduce((acc, mov)=> acc+mov, 0);
 
 
   labelSumIn.textContent=`${incomes}€`;
   labelSumOut.textContent=`${Math.abs(outcomes)}€`;
-  labelSumInterest.textContent=`${interest}€`;
+  labelSumInterest.textContent=`${interest.toFixed(2)}€`;
 }
-calcDisplaySummary(account1.movements);
 
 
 
@@ -2432,7 +2429,30 @@ btnLogin.addEventListener('click', (e)=> {
 
   currentAccount=accounts.find(acc=> acc.username===inputLoginUsername.value);
 
-  console.log(currentAccount);
+  if(currentAccount?.pin ===Number(inputLoginPin.value)) {
+    //display ui and message
+    labelWelcome.textContent=`Welcome back, ${currentAccount.owner.split(' ')[0]} ⭐ `;
+    containerApp.style.opacity = 100;
+
+    //display movements
+    displayMovements(currentAccount.movements);
+
+    // display balance
+    calcBalance(currentAccount.movements);
+
+
+    // display summary
+    calcDisplaySummary(currentAccount);
+
+    inputLoginUsername.value=inputLoginPin.value='';
+
+    inputLoginPin.blur();
+
+  } else {
+    alert('Wrong username or password');
+    inputLoginUsername.value=inputLoginPin.value='';
+    inputLoginPin.blur();
+  }
 })
 
 /////////////////////////////////////////////////
