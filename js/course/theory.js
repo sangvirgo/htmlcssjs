@@ -2455,6 +2455,14 @@ btnLogin.addEventListener('click', (e)=> {
   }
 })
 
+// implementing tranfers
+btnTransfer.addEventListener('click', e=>{
+  e.preventDefault();
+  const moneyAmount=Number(inputTransferTo.value);
+  const receiverAccount=accounts.find(acc=> acc.username===inputTransferAmount.value);
+}) 
+
+
 /////////////////////////////////////////////////
 /////////////////////LECTURES/////////////////////////
 //////////////////////////////////////////////////////
