@@ -2389,14 +2389,14 @@ const displayMovements = (movements) => {
     <div class="movements__value">${mov}€</div>
   </div>`
 
-  containerMovements.insertAdjacentHTML("beforeend", html)
+  containerMovements.insertAdjacentHTML("afterbegin", html)
   })
 }
 
 
-const calcBalance = (mov)=> {
-  const balance= mov.reduce((accumulator, current)=> {return accumulator + current}, 0);
-  labelBalance.textContent= `${balance}€`;
+const calcBalance = (acc)=> {
+  acc.balance= acc.movements.reduce((accumulator, current)=> {return accumulator + current}, 0);
+  labelBalance.textContent= `${acc.balance}€`;
 }
 
 
@@ -2413,13 +2413,21 @@ const calcDisplaySummary = (acc)=> {
   const outcomes=acc?.movements.filter(mov=> mov<0).reduce((acc, mov)=> acc+mov, 0);
   const interest=acc?.movements.filter(mov=> {return mov>=1}).map(mov=>mov*acc?.interestRate/100).reduce((acc, mov)=> acc+mov, 0);
 
-
   labelSumIn.textContent=`${incomes}€`;
   labelSumOut.textContent=`${Math.abs(outcomes)}€`;
   labelSumInterest.textContent=`${interest.toFixed(2)}€`;
 }
 
+const updateUI =(acc) => {
+  //display movements
+  displayMovements(acc.movements);
 
+  // display balance
+  calcBalance(acc);
+
+  // display summary
+  calcDisplaySummary(acc);
+}
 
 // handler the login
 let currentAccount;
@@ -2434,16 +2442,7 @@ btnLogin.addEventListener('click', (e)=> {
     labelWelcome.textContent=`Welcome back, ${currentAccount.owner.split(' ')[0]} ⭐ `;
     containerApp.style.opacity = 100;
 
-    //display movements
-    displayMovements(currentAccount.movements);
-
-    // display balance
-    calcBalance(currentAccount.movements);
-
-
-    // display summary
-    calcDisplaySummary(currentAccount);
-
+    updateUI(currentAccount);
     inputLoginUsername.value=inputLoginPin.value='';
 
     inputLoginPin.blur();
@@ -2458,10 +2457,51 @@ btnLogin.addEventListener('click', (e)=> {
 // implementing tranfers
 btnTransfer.addEventListener('click', e=>{
   e.preventDefault();
-  const moneyAmount=Number(inputTransferTo.value);
-  const receiverAccount=accounts.find(acc=> acc.username===inputTransferAmount.value);
+  const moneyAmount=Number(inputTransferAmount.value);
+  const receiverAccount=accounts.find(acc=> acc.username===inputTransferTo.value);
+  inputTransferAmount=inputTransferTo='';
+
+  if(moneyAmount>0 && currentAccount.balance>=moneyAmount && receiverAccount.username !==currentAccount.username && receiverAccount) {
+    
+    // doing transfer
+    receiverAccount.movements.push(moneyAmount);
+    currentAccount.movements.push(-moneyAmount);
+
+    updateUI(currentAccount);
+  } else {
+    alert("Wrong username or password")
+  }
 }) 
 
+btnClose.addEventListener('click', (e)=>{
+  e.preventDefault();
+
+
+  if(String(inputCloseUsername.value) ===currentAccount?.username && Number(inputClosePin.value)===currentAccount?.pin) {
+    const index =accounts.findIndex(acc=> acc.username===currentAccount.username);
+
+    accounts.splice(index, 1);
+    //update ui
+
+    containerApp.style.opacity = 0;
+    inputClosePin.value=inputCloseUsername.value='';
+  }
+})
+
+btnLoan.addEventListener('click', (e)=>{
+  e.preventDefault();
+
+  const amount=Number(inputLoanAmount.value);
+
+  if(amount>0 && currentAccount.movements.some(mov=> amount>=mov*0.1)) {
+    currentAccount.movements.push(amount);
+    inputLoanAmount.value=null;
+    updateUI(currentAccount);
+  } else {
+    alert("The loan needs to be larger!")
+    inputLoanAmount.value=null;
+  }
+})
 
 /////////////////////////////////////////////////
 /////////////////////LECTURES/////////////////////////
