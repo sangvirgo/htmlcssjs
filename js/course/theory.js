@@ -2372,7 +2372,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 
 
-const displayMovements = (movements) => {
+const displayMovements = (movements, sort=false) => {
 // inner html 
 // Bảo mật: Tránh chèn trực tiếp dữ liệu không tin cậy vào innerHTML vì có thể dẫn đến lỗ hổng bảo mật XSS (Cross-Site Scripting). Đảm bảo rằng dữ liệu được kiểm tra và xử lý an toàn trước khi chèn.
 
@@ -2382,7 +2382,9 @@ const displayMovements = (movements) => {
 
   containerMovements.innerHTML='';
 
-  movements.forEach((mov, i)=> {
+  const movs=sort?movements.sort((a, b)=> a-b):movements;
+
+  movs.forEach((mov, i)=> {
     const type = mov > 0? 'deposit' : 'withdrawal';
     const html= `<div class="movements__row">
     <div class="movements__type movements__type--${type}">${i+1} deposit</div>
@@ -2503,6 +2505,12 @@ btnLoan.addEventListener('click', (e)=>{
   }
 })
 
+let sortt=false;
+btnSort.addEventListener('click', (e)=> {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sortt);
+  sortt=!sortt;
+})
 /////////////////////////////////////////////////
 /////////////////////LECTURES/////////////////////////
 //////////////////////////////////////////////////////
@@ -2726,3 +2734,40 @@ const theFirstWithdrawal = movements.find(mov=> {
 // console.log(movements);
 // console.log(theFirstWithdrawal);
 
+// flat and flatmap
+
+
+// Phương thức này tạo ra một mảng mới với tất cả các phần tử con của mảng gốc được gộp lại theo một độ sâu nhất định.
+const arrr1=[[1, 2], 2, [3, 4, 5], [6, 7]];
+// console.log(arrr1.flat());
+
+const arrr2=[1, [2, [3, 4, [5, 6]]], 3, 5, [7, 8, [4, 6]]];
+// console.log(arrr2.flat(3));
+
+// application
+const accMovement1=accounts.map(acc=>acc.movements).flat(1).reduce((acc, mov)=> acc+mov, 0);
+console.log(accMovement1);
+
+const accMovement2=accounts.flatMap(acc=>acc.movements).reduce((acc, mov)=> acc+mov, 0);
+console.log(accMovement2);
+
+// movements.sort();
+// console.log(movements);
+
+
+/// cai gi cao la dung se duoc dua ve phia sau
+
+// ascending
+
+// tang dan
+// movements.sort((a, b)=>{
+//   return (a>b)?1:-1;
+// })
+
+// movements.sort((a, b)=> a-b);
+
+// console.log(movements);
+
+// movements.sort((a, b) => b-a);
+
+// console.log(movements);
