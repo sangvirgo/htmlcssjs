@@ -2771,3 +2771,13 @@ console.log(accMovement2);
 // movements.sort((a, b) => b-a);
 
 // console.log(movements);
+
+// creating and fill
+
+const x=new Array(7);
+
+// x.fill(1);
+
+x.fill(1, 3)
+// same splice 
+console.log(x);
