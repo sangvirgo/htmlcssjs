@@ -2307,7 +2307,7 @@ document.querySelector('body').addEventListener('click', () => {
 });
 })();
 
-*/ 
+*/
 
 
 // BANKIST APP
@@ -2372,55 +2372,55 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 
 
-const displayMovements = (movements, sort=false) => {
-// inner html 
-// Bảo mật: Tránh chèn trực tiếp dữ liệu không tin cậy vào innerHTML vì có thể dẫn đến lỗ hổng bảo mật XSS (Cross-Site Scripting). Đảm bảo rằng dữ liệu được kiểm tra và xử lý an toàn trước khi chèn.
+const displayMovements = (movements, sort = false) => {
+  // inner html 
+  // Bảo mật: Tránh chèn trực tiếp dữ liệu không tin cậy vào innerHTML vì có thể dẫn đến lỗ hổng bảo mật XSS (Cross-Site Scripting). Đảm bảo rằng dữ liệu được kiểm tra và xử lý an toàn trước khi chèn.
 
-// Hiệu suất: Khi thay đổi innerHTML, trình duyệt sẽ phân tích lại toàn bộ nội dung HTML bên trong phần tử, điều này có thể ảnh hưởng đến hiệu suất nếu bạn thay đổi nội dung lớn hoặc thực hiện thay đổi thường xuyên.
+  // Hiệu suất: Khi thay đổi innerHTML, trình duyệt sẽ phân tích lại toàn bộ nội dung HTML bên trong phần tử, điều này có thể ảnh hưởng đến hiệu suất nếu bạn thay đổi nội dung lớn hoặc thực hiện thay đổi thường xuyên.
 
-// Sự kiện bị mất: Khi thay đổi nội dung của một phần tử bằng innerHTML, tất cả các sự kiện gắn với các phần tử con của nó sẽ bị mất.
+  // Sự kiện bị mất: Khi thay đổi nội dung của một phần tử bằng innerHTML, tất cả các sự kiện gắn với các phần tử con của nó sẽ bị mất.
 
-  containerMovements.innerHTML='';
+  containerMovements.innerHTML = '';
 
-  const movs=sort?movements.sort((a, b)=> a-b):movements;
+  const movs = sort ? movements.sort((a, b) => a - b) : movements;
 
-  movs.forEach((mov, i)=> {
-    const type = mov > 0? 'deposit' : 'withdrawal';
-    const html= `<div class="movements__row">
-    <div class="movements__type movements__type--${type}">${i+1} deposit</div>
+  movs.forEach((mov, i) => {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `<div class="movements__row">
+    <div class="movements__type movements__type--${type}">${i + 1} deposit</div>
     <div class="movements__value">${mov}€</div>
   </div>`
 
-  containerMovements.insertAdjacentHTML("afterbegin", html)
+    containerMovements.insertAdjacentHTML("afterbegin", html)
   })
 }
 
 
-const calcBalance = (acc)=> {
-  acc.balance= acc.movements.reduce((accumulator, current)=> {return accumulator + current}, 0);
-  labelBalance.textContent= `${acc.balance}€`;
+const calcBalance = (acc) => {
+  acc.balance = acc.movements.reduce((accumulator, current) => { return accumulator + current }, 0);
+  labelBalance.textContent = `${acc.balance}€`;
 }
 
 
-const createUserNames = (accs)=> {
-  accs.forEach(acc=> {
-    acc.username=acc.owner.toLowerCase().split(' ').map(name=>name[0]).join('');
+const createUserNames = (accs) => {
+  accs.forEach(acc => {
+    acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join('');
   })
 }
 createUserNames(accounts);
 
 
-const calcDisplaySummary = (acc)=> {
-  const incomes= acc?.movements.filter(mov=> mov>0).reduce((acc, mov)=> acc+mov, 0);
-  const outcomes=acc?.movements.filter(mov=> mov<0).reduce((acc, mov)=> acc+mov, 0);
-  const interest=acc?.movements.filter(mov=> {return mov>=1}).map(mov=>mov*acc?.interestRate/100).reduce((acc, mov)=> acc+mov, 0);
+const calcDisplaySummary = (acc) => {
+  const incomes = acc?.movements.filter(mov => mov > 0).reduce((acc, mov) => acc + mov, 0);
+  const outcomes = acc?.movements.filter(mov => mov < 0).reduce((acc, mov) => acc + mov, 0);
+  const interest = acc?.movements.filter(mov => { return mov >= 1 }).map(mov => mov * acc?.interestRate / 100).reduce((acc, mov) => acc + mov, 0);
 
-  labelSumIn.textContent=`${incomes}€`;
-  labelSumOut.textContent=`${Math.abs(outcomes)}€`;
-  labelSumInterest.textContent=`${interest.toFixed(2)}€`;
+  labelSumIn.textContent = `${incomes}€`;
+  labelSumOut.textContent = `${Math.abs(outcomes)}€`;
+  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
 }
 
-const updateUI =(acc) => {
+const updateUI = (acc) => {
   //display movements
   displayMovements(acc.movements);
 
@@ -2434,37 +2434,37 @@ const updateUI =(acc) => {
 // handler the login
 let currentAccount;
 
-btnLogin.addEventListener('click', (e)=> {
+btnLogin.addEventListener('click', (e) => {
   e.preventDefault();
 
-  currentAccount=accounts.find(acc=> acc.username===inputLoginUsername.value);
+  currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
 
-  if(currentAccount?.pin ===Number(inputLoginPin.value)) {
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
     //display ui and message
-    labelWelcome.textContent=`Welcome back, ${currentAccount.owner.split(' ')[0]} ⭐ `;
+    labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]} ⭐ `;
     containerApp.style.opacity = 100;
 
     updateUI(currentAccount);
-    inputLoginUsername.value=inputLoginPin.value='';
+    inputLoginUsername.value = inputLoginPin.value = '';
 
     inputLoginPin.blur();
 
   } else {
     alert('Wrong username or password');
-    inputLoginUsername.value=inputLoginPin.value='';
+    inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
   }
 })
 
 // implementing tranfers
-btnTransfer.addEventListener('click', e=>{
+btnTransfer.addEventListener('click', e => {
   e.preventDefault();
-  const moneyAmount=Number(inputTransferAmount.value);
-  const receiverAccount=accounts.find(acc=> acc.username===inputTransferTo.value);
-  inputTransferAmount=inputTransferTo='';
+  const moneyAmount = Number(inputTransferAmount.value);
+  const receiverAccount = accounts.find(acc => acc.username === inputTransferTo.value);
+  inputTransferAmount = inputTransferTo = '';
 
-  if(moneyAmount>0 && currentAccount.balance>=moneyAmount && receiverAccount.username !==currentAccount.username && receiverAccount) {
-    
+  if (moneyAmount > 0 && currentAccount.balance >= moneyAmount && receiverAccount.username !== currentAccount.username && receiverAccount) {
+
     // doing transfer
     receiverAccount.movements.push(moneyAmount);
     currentAccount.movements.push(-moneyAmount);
@@ -2473,43 +2473,43 @@ btnTransfer.addEventListener('click', e=>{
   } else {
     alert("Wrong username or password")
   }
-}) 
+})
 
-btnClose.addEventListener('click', (e)=>{
+btnClose.addEventListener('click', (e) => {
   e.preventDefault();
 
 
-  if(String(inputCloseUsername.value) ===currentAccount?.username && Number(inputClosePin.value)===currentAccount?.pin) {
-    const index =accounts.findIndex(acc=> acc.username===currentAccount.username);
+  if (String(inputCloseUsername.value) === currentAccount?.username && Number(inputClosePin.value) === currentAccount?.pin) {
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username);
 
     accounts.splice(index, 1);
     //update ui
 
     containerApp.style.opacity = 0;
-    inputClosePin.value=inputCloseUsername.value='';
+    inputClosePin.value = inputCloseUsername.value = '';
   }
 })
 
-btnLoan.addEventListener('click', (e)=>{
+btnLoan.addEventListener('click', (e) => {
   e.preventDefault();
 
-  const amount=Number(inputLoanAmount.value);
+  const amount = Number(inputLoanAmount.value);
 
-  if(amount>0 && currentAccount.movements.some(mov=> amount>=mov*0.1)) {
+  if (amount > 0 && currentAccount.movements.some(mov => amount >= mov * 0.1)) {
     currentAccount.movements.push(amount);
-    inputLoanAmount.value=null;
+    inputLoanAmount.value = null;
     updateUI(currentAccount);
   } else {
     alert("The loan needs to be larger!")
-    inputLoanAmount.value=null;
+    inputLoanAmount.value = null;
   }
 })
 
-let sortt=false;
-btnSort.addEventListener('click', (e)=> {
+let sortt = false;
+btnSort.addEventListener('click', (e) => {
   e.preventDefault();
   displayMovements(currentAccount.movements, !sortt);
-  sortt=!sortt;
+  sortt = !sortt;
 })
 /////////////////////////////////////////////////
 /////////////////////LECTURES/////////////////////////
@@ -2520,7 +2520,7 @@ btnSort.addEventListener('click', (e)=> {
 /////////////////////////////////////////////////
 
 
-let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // similar to string, arrays also have some methods
 
@@ -2639,9 +2639,9 @@ const currenciesUnique = new Set(['USD', 'EUR', 'USD', 'GBP', 'EUR']);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 // map method
-const eurToUsd=1.1;
- 
-const movementsUSD = movements.map((mov) => mov*eurToUsd);
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map((mov) => mov * eurToUsd);
 // console.log(movements);
 
 
@@ -2654,13 +2654,13 @@ const username = user.toLowerCase().split(" ").map((name) => {
 
 
 // filter method 
-const deposits = movements.filter(mov=> {
+const deposits = movements.filter(mov => {
   return mov > 0;
 })
 
 // console.log(deposits);
 
-const withdrawal = movements.filter(mov=> {
+const withdrawal = movements.filter(mov => {
   return mov < 0;
 })
 
@@ -2677,8 +2677,8 @@ const balance = movements.reduce((accumulator, cur, i, arr) => {
 
 
 // maxium value 
-const findMax = movements.reduce((accumulator, current)=> {
-  return (accumulator>current)?accumulator:current;
+const findMax = movements.reduce((accumulator, current) => {
+  return (accumulator > current) ? accumulator : current;
 }, movements[0]);
 
 
@@ -2706,21 +2706,21 @@ const findMax = movements.reduce((accumulator, current)=> {
 // §Data 2: [16, 6, 10, 5, 6, 1, 4]
 // GOOD LUCK 😀
 
-const calcAverageHumanAge = (ages)=> {
-  const human = ages.map(age=> {
-    return (age>2) ? age*4+16 : age*2
-  }).filter(age=> {
-    return age>=18
+const calcAverageHumanAge = (ages) => {
+  const human = ages.map(age => {
+    return (age > 2) ? age * 4 + 16 : age * 2
+  }).filter(age => {
+    return age >= 18
   })
-  const adults= human.reduce((accumulator, current)=> {
-    return accumulator+current
+  const adults = human.reduce((accumulator, current) => {
+    return accumulator + current
   }, 0);
   // console.log(adults/human.length);
 }
 
-const dogsKate=[5, 2, 4, 1, 15, 8, 3]
-const dogsJulia=[16, 6, 10, 5, 6, 1, 4]
-const combine= dogsJulia.concat(dogsKate);
+const dogsKate = [5, 2, 4, 1, 15, 8, 3]
+const dogsJulia = [16, 6, 10, 5, 6, 1, 4]
+const combine = dogsJulia.concat(dogsKate);
 calcAverageHumanAge(dogsKate);
 
 
@@ -2728,7 +2728,7 @@ calcAverageHumanAge(dogsKate);
 // find method 
 
 // return the first element that satisfy the condition
-const theFirstWithdrawal = movements.find(mov=> {
+const theFirstWithdrawal = movements.find(mov => {
   return mov < 0;
 })
 // console.log(movements);
@@ -2738,17 +2738,17 @@ const theFirstWithdrawal = movements.find(mov=> {
 
 
 // Phương thức này tạo ra một mảng mới với tất cả các phần tử con của mảng gốc được gộp lại theo một độ sâu nhất định.
-const arrr1=[[1, 2], 2, [3, 4, 5], [6, 7]];
+const arrr1 = [[1, 2], 2, [3, 4, 5], [6, 7]];
 // console.log(arrr1.flat());
 
-const arrr2=[1, [2, [3, 4, [5, 6]]], 3, 5, [7, 8, [4, 6]]];
+const arrr2 = [1, [2, [3, 4, [5, 6]]], 3, 5, [7, 8, [4, 6]]];
 // console.log(arrr2.flat(3));
 
 // application
-const accMovement1=accounts.map(acc=>acc.movements).flat(1).reduce((acc, mov)=> acc+mov, 0);
+const accMovement1 = accounts.map(acc => acc.movements).flat(1).reduce((acc, mov) => acc + mov, 0);
 console.log(accMovement1);
 
-const accMovement2=accounts.flatMap(acc=>acc.movements).reduce((acc, mov)=> acc+mov, 0);
+const accMovement2 = accounts.flatMap(acc => acc.movements).reduce((acc, mov) => acc + mov, 0);
 console.log(accMovement2);
 
 // movements.sort();
@@ -2774,10 +2774,66 @@ console.log(accMovement2);
 
 // creating and fill
 
-const x=new Array(7);
+const x = new Array(7);
 
 // x.fill(1);
 
 x.fill(1, 3)
 // same splice 
-console.log(x);
+// console.log(x);
+
+const y = new Array(7);
+y.fill(23);
+
+// console.log(y);
+
+y.fill(1, 3, 5);
+// console.log(y);
+
+const z = Array.from({ length: 7 }, (cur, i) => i + 1);
+// console.log(z);
+
+/*
+Array.from:
+
+Đây là một phương thức tĩnh của lớp Array trong JavaScript.
+Array.from tạo ra một mảng mới từ một đối tượng giống mảng (array-like object) hoặc một đối tượng có thể lặp lại (iterable object).
+Đối tượng {length: 7}:
+
+Đây là đối tượng giống mảng có thuộc tính length bằng 7. Nó không chứa bất kỳ phần tử nào, chỉ đơn giản là một đối tượng với thuộc tính length.
+Khi Array.from nhận đối tượng này, nó sẽ tạo ra một mảng với độ dài bằng 7, nhưng các phần tử của mảng này sẽ là undefined.
+Hàm (cur, i) => i + 1:
+
+Đây là hàm tạo (mapping function) được truyền vào Array.from.
+Hàm này nhận hai tham số:
+cur: Giá trị hiện tại của phần tử (trong trường hợp này không sử dụng giá trị này, vì các phần tử ban đầu đều là undefined).
+i: Chỉ số của phần tử trong mảng (từ 0 đến 6).
+Hàm này trả về i + 1, có nghĩa là giá trị của phần tử sẽ là chỉ số của nó cộng thêm 1.
+*/
+
+// create a array with length=100 ramdom
+
+const a = Array.from({ length: 10 }, () => Math.trunc(Math.random() * 100) + 1);
+// console.log(a);
+
+
+labelBalance.addEventListener("click", (e) => {
+  const movementsUI = Array.from(document.querySelectorAll('.movements__value'), el.textContent.replace('€', '$'));
+
+  console.log(movementsUI);
+})
+
+
+// array methods practice 
+const bankDepositSum = accounts.flatMap(acc => acc.movements).filter(mov => mov > 0).reduce((sum, cur) => cur + sum, 0);
+console.log(bankDepositSum);
+
+
+// 2. count the number of accounts with deposits of 1000$
+// const numDeposit1000=accounts.flatMap(mov=>mov.movements).filter(mov=>mov>=1000).length;
+
+const numDeposit1000 = accounts.flatMap(mov => mov.movements).reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
+console.log(numDeposit1000);
+
+const sums = accounts.flatMap(mov => mov.movements).reduce((counts, cur) => { cur > 0 ? (counts.deposits += 1) : (counts.withdrawal += 1); return sums }, { deposits: 0, withdrawal: 0 });
+console.log(sums);
